@@ -1,0 +1,4105 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Antonio Farella Hair Designer Studio</title>
+    <meta name="description" content="Antonio Farella Hair Designer Studio - Hair & Beauty Salon. Prenota un appuntamento, chiama ora.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta property="og:image" content="favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Great+Vibes&family=Kumbh+Sans:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           RESET & BASE
+        ========================================= */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #FFFFFF;
+            --bg2: #F9F7F5;
+            --bd: #E9E9E9;
+            --title: #321D11;
+            --text: #86898C;
+            --meta: #ACAFB2;
+            --link: #FF9E8D;
+            --hover: #F87D6B;
+            --alt-bg: #0E0402;
+            --alt-bg2: #1B1311;
+            --alt-bd: #28211F;
+            --alt-title: #FFFFFF;
+            --alt-text: #B2A3A1;
+            --gold: #C9A96E;
+            --font-h: 'Tenor Sans', serif;
+            --font-p: 'Kumbh Sans', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-p);
+            font-size: 16px;
+            line-height: 1.625;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-h);
+            color: var(--title);
+            text-transform: uppercase;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        a { color: var(--link); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--hover); }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        section { position: relative; }
+
+        /* =========================================
+           HEADER / NAVBAR
+        ========================================= */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 20px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+        }
+
+        .site-header.scrolled {
+            background: rgba(255,255,255,0.97);
+            padding: 14px 60px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .logo-circle-badge {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-rotating-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: rotateLogoCircle 20s linear infinite;
+            transform-origin: center center;
+            fill: rgba(255, 255, 255, 0.95);
+            font-family: var(--font-h);
+            font-size: 11.5px;
+            letter-spacing: 3.2px;
+            text-transform: uppercase;
+            transition: fill 0.3s;
+            pointer-events: none;
+        }
+
+        .header-logo:hover .logo-rotating-svg {
+            animation-play-state: paused;
+        }
+
+        @keyframes rotateLogoCircle {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        .logo-inner-img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            transition: filter 0.3s, transform 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-logo:hover .logo-inner-img {
+            transform: scale(1.05);
+        }
+
+        .site-header.scrolled .logo-rotating-svg {
+            fill: var(--title);
+        }
+
+        .site-header.scrolled .logo-inner-img {
+            filter: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 36px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            font-family: var(--font-h);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255,255,255,0.9);
+            transition: color 0.3s;
+        }
+
+        .site-header.scrolled nav ul li a { color: var(--title); }
+        nav ul li a:hover { color: var(--link); }
+        nav ul li a.active { color: var(--link); }
+
+        .header-cta {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.9) !important;
+            padding: 10px 24px;
+            font-family: var(--font-h);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .site-header.scrolled .header-cta {
+            border-color: var(--title);
+            color: var(--title) !important;
+        }
+
+        .header-cta:hover {
+            background: var(--link);
+            border-color: var(--link);
+            color: white !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .site-header.scrolled .hamburger span { background: var(--title); }
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+        .hero {
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.45) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 160px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-label {
+            font-family: var(--font-h);
+            font-size: clamp(18px, 2.5vw, 26px);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--gold);
+            margin-top: 8px;
+            margin-bottom: 24px;
+            display: inline-block;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: clamp(18px, 2.2vw, 24px);
+            color: rgba(255,255,255,0.92);
+            max-width: 860px;
+            line-height: 1.75;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: #E0D2BD;
+            color: #8B7758;
+            border: none;
+            padding: 14px 36px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover { background: var(--link); color: white; }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.85);
+            padding: 14px 36px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover { background: rgba(255,255,255,0.1); color: white; }
+
+        /* Hero bottom stats */
+        .hero-bottom {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .hero-stat {
+            padding: 30px 40px;
+            border-right: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.85);
+        }
+
+        .hero-stat:last-child { border-right: none; }
+
+        .hero-stat-num {
+            font-family: var(--font-h);
+            font-size: 36px;
+            color: #E0D2BD;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        /* =========================================
+           ABOUT SECTION
+        ========================================= */
+        .about {
+            background: var(--bg);
+            padding: 120px 0;
+        }
+
+        .container {
+            max-width: 1290px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+        }
+
+        .about-img-main {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+
+        .about-img-secondary {
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 55%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border: 6px solid white;
+        }
+
+        .about-text {
+            padding-left: 20px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .about-text h2 {
+            font-size: clamp(32px, 3.5vw, 47px);
+            margin-bottom: 28px;
+        }
+
+        .about-text p {
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 36px 0;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--title);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .about-feature i { color: var(--link); font-size: 14px; }
+
+        .btn-dark {
+            background: var(--alt-bg);
+            color: white;
+            padding: 14px 36px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-dark:hover { background: var(--link); color: white; }
+
+        /* =========================================
+           WELLNESS / BENESSERE SECTION
+        ========================================= */
+        .wellness {
+            background: var(--bg2);
+            padding: 120px 0;
+            border-top: 1px solid var(--bd);
+        }
+
+        .wellness-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .wellness-images {
+            position: relative;
+        }
+
+        .wellness-img-main {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+
+        .wellness-img-secondary {
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 55%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border: 6px solid white;
+        }
+
+        .wellness-text {
+            padding-right: 20px;
+        }
+
+        /* =========================================
+           SERVICES SECTION
+        ========================================= */
+        .services {
+            background: var(--alt-bg);
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(30px, 4vw, 47px);
+            color: var(--alt-title);
+            margin-top: 14px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .service-card {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover img { transform: scale(1.05); }
+
+        .service-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 36px 30px;
+            transition: all 0.3s;
+        }
+
+        .service-num {
+            font-family: var(--font-h);
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--link);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .service-card:hover .service-desc {
+            max-height: 100px;
+            opacity: 1;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--link);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 16px;
+            font-family: var(--font-h);
+        }
+
+        /* =========================================
+           TREATMENTS ROWS (In fila con foto a lato)
+        ========================================= */
+        .treatments-rows-list {
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+            margin-bottom: 60px;
+        }
+
+        .treatment-row {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        .treatment-row.reversed {
+            grid-template-columns: 1.15fr 1fr;
+        }
+
+        .treatment-row.reversed .treatment-row-img {
+            order: 2;
+        }
+
+        .treatment-row.reversed .treatment-category-box {
+            order: 1;
+        }
+
+        .treatment-row-img {
+            position: relative;
+            width: 100%;
+            min-height: 460px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.25);
+        }
+
+        .treatment-row-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+            display: block;
+        }
+
+        .treatment-row:hover .treatment-row-img img {
+            transform: scale(1.05);
+        }
+
+        .treatment-category-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 36px;
+            transition: border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .treatment-category-box:hover {
+            border-color: var(--gold);
+        }
+
+        .treatment-category-title {
+            font-family: var(--font-h);
+            font-size: 21px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .treatment-category-title i {
+            font-size: 18px;
+        }
+
+        .treatment-item {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .treatment-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .treatment-name {
+            font-family: var(--font-h);
+            font-size: 16px;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .treatment-tag {
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.9;
+            font-family: var(--font-b);
+        }
+
+        .treatment-desc {
+            font-size: 14px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+
+        @media (max-width: 960px) {
+            .treatment-row, .treatment-row.reversed {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .treatment-row.reversed .treatment-row-img {
+                order: 1;
+            }
+            .treatment-row.reversed .treatment-category-box {
+                order: 2;
+            }
+            .treatment-row-img {
+                min-height: 320px;
+                max-height: 420px;
+            }
+            .treatments-rows-list {
+                gap: 50px;
+            }
+        }
+
+        /* =========================================
+           LA CURA RACCONTA CHI SEI SECTION
+        ========================================= */
+        .cura-section {
+            background: radial-gradient(circle at center, #1F0D09 0%, #0D0402 100%);
+            padding: 130px 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(201, 169, 110, 0.2);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .cura-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .cura-title {
+            font-size: clamp(36px, 5vw, 64px);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+
+        .cura-separator {
+            color: var(--gold);
+            font-size: 22px;
+            margin-bottom: 34px;
+            opacity: 0.85;
+        }
+
+        .cura-text-wrap {
+            margin-bottom: 45px;
+        }
+
+        .cura-lead {
+            font-size: clamp(19px, 2.3vw, 25px);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .cura-body {
+            font-size: clamp(16px, 1.8vw, 20px);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.78);
+            font-weight: 300;
+            margin-bottom: 28px;
+        }
+
+        .cura-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(20px, 2.4vw, 27px);
+            line-height: 1.65;
+            color: #E0D2BD;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .cura-cta-wrap {
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .cura-phone-card {
+            display: none;
+            margin-top: 24px;
+            padding: 24px 30px;
+            background: rgba(201, 169, 110, 0.08);
+            border: 1px solid var(--gold);
+            animation: phoneFadeIn 0.4s ease forwards;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cura-phone-card.show {
+            display: block;
+        }
+
+        @keyframes phoneFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .cura-phone-title {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            font-family: var(--font-h);
+        }
+
+        .cura-phone-big {
+            font-family: var(--font-h);
+            font-size: clamp(26px, 3.5vw, 34px);
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .cura-phone-big:hover {
+            color: #FFFFFF;
+            transform: scale(1.03);
+        }
+
+        .cura-phone-sub {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .cura-section { padding: 80px 0; }
+        }
+
+        /* =========================================
+           PORTFOLIO / GALLERY
+        ========================================= */
+        .gallery {
+            padding: 120px 0;
+            background: var(--bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 12px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            min-height: 280px;
+        }
+
+        .gallery-item:hover img { transform: scale(1.06); }
+
+        .gallery-item.tall { grid-row: span 2; }
+        .gallery-item.wide { grid-column: span 2; }
+
+        /* =========================================
+           ORARI / INFO SECTION
+        ========================================= */
+        .info-section {
+            background: var(--bg2);
+            padding: 100px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .info-block h4 {
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+            color: var(--title);
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--bd);
+        }
+
+        .info-block p, .info-block address {
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.8;
+            font-style: normal;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--bd);
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .hours-row:last-child { border-bottom: none; }
+        .hours-row .day { color: var(--title); font-weight: 500; }
+        .hours-row .closed { color: var(--meta); }
+
+        .social-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--bd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--title);
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--link);
+            border-color: var(--link);
+            color: white;
+        }
+
+        /* =========================================
+           TESTIMONIALS
+        ========================================= */
+        .testimonials {
+            background: var(--alt-bg);
+            padding: 100px 0 60px;
+        }
+
+        .testimonials .section-header h2 { color: var(--alt-title); }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--alt-bg2);
+            padding: 40px;
+            border: 1px solid var(--alt-bd);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--alt-text);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-h);
+            font-size: 14px;
+            color: var(--alt-title);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--alt-text);
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           RECENSIONI CLIENTI
+        ========================================= */
+        .customer-reviews {
+            padding: 60px 0 130px;
+            background: var(--alt-bg);
+            border-top: 1px solid var(--alt-bd);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .customer-reviews::before {
+            content: "✧";
+            position: absolute;
+            top: 40px;
+            right: 7%;
+            color: rgba(201, 169, 110, 0.07);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 280px;
+            line-height: .7;
+            pointer-events: none;
+        }
+
+        .customer-reviews .container { position: relative; z-index: 1; }
+        .customer-reviews .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .customer-reviews .section-header h2 {
+            color: var(--alt-title);
+            font-size: clamp(30px, 4vw, 47px);
+            font-family: var(--font-h);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 14px;
+        }
+        .customer-reviews .section-label {
+            color: var(--gold);
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .reviews-summary {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            width: min(100%, 720px);
+            min-height: 118px;
+            margin: 0 auto 50px;
+            border: 1px solid var(--alt-bd);
+            padding: 0;
+            background: var(--alt-bg2);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .reviews-summary strong {
+            display: grid;
+            place-items: center;
+            min-width: 150px;
+            background: var(--gold);
+            color: #1a1a1a;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 60px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .reviews-summary small {
+            display: block;
+            color: var(--alt-text);
+            font-size: 12px;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .reviews-summary > span:not(.reviews-summary-note) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 25px;
+        }
+
+        .reviews-summary-note {
+            margin-left: auto;
+            align-self: center;
+            max-width: 220px;
+            padding: 20px 25px;
+            color: var(--alt-text);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.25;
+            border-left: 1px solid var(--alt-bd);
+        }
+
+        .reviews-layout {
+            display: grid;
+            grid-template-columns: 1fr 390px;
+            align-items: start;
+            gap: 50px;
+        }
+
+        #customerReviewList {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .customer-review-card {
+            min-height: 200px;
+            padding: 28px;
+            border: 1px solid var(--alt-bd);
+            background: var(--alt-bg2);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .customer-review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+            border-color: rgba(201, 169, 110, 0.4);
+        }
+
+        .customer-review-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .customer-review-head strong {
+            display: block;
+            color: var(--alt-title);
+            font-family: var(--font-h);
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+
+        .customer-review-stars {
+            color: var(--gold);
+            font-family: Arial, sans-serif !important;
+            font-size: 20px !important;
+            letter-spacing: 2px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .reviews-summary .customer-review-stars {
+            display: block;
+            font-size: 21px;
+            letter-spacing: 4px;
+        }
+
+        .customer-review-card p {
+            color: var(--alt-text);
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 20px 0 16px;
+            font-style: italic;
+        }
+
+        .customer-review-card small {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .review-form {
+            padding: 36px 32px 32px;
+            border: 1px solid var(--alt-bd);
+            background: var(--alt-bg2);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .review-form h3 {
+            color: var(--alt-title);
+            font-family: var(--font-h);
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 26px;
+        }
+
+        .review-form label {
+            display: block;
+            color: var(--alt-text);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .review-form input,
+        .review-form select,
+        .review-form textarea {
+            display: block;
+            width: 100%;
+            border: 1px solid var(--alt-bd);
+            background: rgba(255,255,255,.04);
+            color: var(--alt-title);
+            font: 14px var(--font-p);
+            margin-top: 8px;
+            outline: 0;
+            padding: 13px 14px;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .review-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .review-form select option {
+            background: var(--alt-bg2);
+            color: var(--alt-title);
+        }
+
+        .review-form input:focus,
+        .review-form select:focus,
+        .review-form textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,.07);
+        }
+
+        .review-form button {
+            width: 100%;
+            background: var(--gold);
+            border: 0;
+            color: #1a1a1a;
+            cursor: pointer;
+            font: 13px var(--font-h);
+            letter-spacing: 2px;
+            padding: 16px 22px;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all 0.3s;
+        }
+
+        .review-form button:hover {
+            background: var(--link);
+            color: #fff;
+        }
+
+        .review-form-note {
+            color: var(--alt-text);
+            font-size: 11px;
+            margin-top: 14px;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 992px) {
+            .reviews-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .customer-reviews { padding: 60px 0 80px; }
+            .reviews-summary {
+                flex-direction: column;
+                margin-bottom: 35px;
+            }
+            .reviews-summary strong {
+                min-width: 100%;
+                padding: 16px;
+                font-size: 46px;
+            }
+            .reviews-summary-note {
+                max-width: 100%;
+                margin: 0;
+                border-left: none;
+                border-top: 1px solid var(--alt-bd);
+                padding: 14px 20px;
+                text-align: center;
+            }
+            #customerReviewList { grid-template-columns: 1fr; }
+            .customer-review-head { align-items: flex-start; flex-direction: column; gap: 8px; }
+            .review-form { margin-top: 10px; padding: 24px 20px; }
+        }
+
+        /* =========================================
+           CONTATTI / CTA
+        ========================================= */
+        .cta-section {
+            position: relative;
+            padding: 140px 20px;
+            background-image: url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center top;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(14, 4, 2, 0.7);
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(32px, 5vw, 60px);
+            color: #E0D2BD;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            max-width: 540px;
+            margin: 0 auto 44px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: #1a1a1a;
+            padding: 16px 44px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover { background: var(--link); color: white; }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+        .site-footer {
+            background: var(--alt-bg);
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-h);
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--alt-title);
+            margin-bottom: 16px;
+        }
+
+        .footer-logo span {
+            display: block;
+            font-family: var(--font-p);
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-top: 4px;
+        }
+
+        .footer-about {
+            color: var(--alt-text);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .footer-col h5 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--alt-title);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--alt-bd);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: var(--alt-text);
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--link); }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            color: var(--alt-text);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .footer-contact-item i {
+            color: var(--link);
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--alt-bd);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            color: var(--alt-text);
+            font-size: 13px;
+        }
+
+        /* =========================================
+           MOBILE NAV OVERLAY
+        ========================================= */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--alt-bg);
+            z-index: 2000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu a {
+            font-family: var(--font-h);
+            font-size: 30px;
+            text-transform: uppercase;
+            color: var(--alt-title);
+            letter-spacing: 3px;
+        }
+
+        .mobile-menu a:hover { color: var(--link); }
+
+        .mobile-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: var(--alt-title);
+            font-size: 28px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* =========================================
+           SCROLL TO TOP
+        ========================================= */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background: var(--link);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            z-index: 500;
+            transition: background 0.3s;
+        }
+
+        .scroll-top.visible { display: flex; }
+        .scroll-top:hover { background: var(--hover); }
+
+        /* =========================================
+           HERO SCROLLING TITLE MARQUEE
+        ========================================= */
+        .hero-title-marquee {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 28px;
+            padding: 10px 0;
+            white-space: nowrap;
+        }
+
+        .hero-title-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: heroTitleScroll 36s linear infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .hero-title-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes heroTitleScroll {
+            0%   { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .hero-title-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: clamp(38px, 6vw, 82px);
+            color: #E0D2BD;
+            text-transform: none;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            padding: 0 24px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .hero-title-separator {
+            color: var(--gold);
+            font-size: clamp(20px, 3vw, 32px);
+            opacity: 0.85;
+            padding: 0 16px;
+            flex-shrink: 0;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+        @media (max-width: 1024px) {
+            .container { padding: 0 30px; }
+            .site-header { padding: 16px 30px; }
+            .site-header.scrolled { padding: 12px 30px; }
+            .about-grid, .wellness-grid { gap: 50px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 18px; }
+            nav ul, .header-cta { display: none; }
+            .hamburger { display: flex; }
+            .site-header { padding: 10px 18px; }
+            .site-header.scrolled { padding: 8px 18px; }
+            .logo-circle-badge { width: 72px; height: 72px; }
+            .logo-inner-img { width: 36px; height: 36px; }
+
+            .mobile-menu {
+                justify-content: flex-start;
+                padding: 70px 20px 40px;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 12px;
+            }
+            .mobile-menu a {
+                font-size: 18px;
+                letter-spacing: 2px;
+                padding: 8px 10px;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            .mobile-close {
+                top: 18px;
+                right: 20px;
+                font-size: 24px;
+                padding: 8px;
+            }
+
+            .hero-desc {
+                font-size: 14.5px;
+                line-height: 1.65;
+                padding: 0 8px;
+                margin-bottom: 24px;
+            }
+            .hero-actions {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                gap: 12px;
+            }
+            .hero-actions .btn-primary,
+            .hero-actions .btn-outline {
+                width: 100%;
+                text-align: center;
+                padding: 13px 20px;
+            }
+            .hero-bottom { grid-template-columns: 1fr; }
+            .hero-stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                padding: 16px 10px;
+            }
+            .hero-stat-num { font-size: 32px; }
+
+            .about-grid, .wellness-grid { grid-template-columns: 1fr; gap: 36px; }
+            .about-img-secondary, .wellness-img-secondary { display: none; }
+            .about-text, .wellness-text { padding-left: 0; padding-right: 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .gallery-item.wide { grid-column: span 1; }
+            .gallery-item img { min-height: 200px; }
+            .info-grid { grid-template-columns: 1fr; gap: 24px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+
+            .about, .wellness, .gallery, .services, .cura-section, .info-section {
+                padding: 60px 0;
+            }
+            .section-header h2 {
+                font-size: clamp(26px, 7vw, 36px);
+                letter-spacing: 2px;
+            }
+            .review-form input,
+            .review-form select,
+            .review-form textarea {
+                font-size: 16px; /* Evita zoom automatico su iOS */
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                text-align: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 14px; }
+            .site-header { padding: 8px 14px; }
+            .logo-circle-badge { width: 64px; height: 64px; }
+            .logo-inner-img { width: 32px; height: 32px; }
+            .hero-label { font-size: 11px; letter-spacing: 3px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item img { min-height: 240px; }
+            .transition-section { padding: 70px 16px; }
+            .transition-title { font-size: 26px; letter-spacing: 3px; }
+            .cta-buttons { flex-direction: column; gap: 12px; }
+            .cta-buttons a, .cta-buttons button { width: 100%; text-align: center; }
+        }
+
+        /* =========================================
+           FOOTER LEGAL LINKS
+        ========================================= */
+        .footer-legal {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: var(--alt-text);
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover { color: var(--link); }
+
+        .footer-legal span {
+            color: var(--alt-text);
+            font-size: 13px;
+            opacity: 0.5;
+        }
+
+        /* =========================================
+           MODAL PRIVACY / COOKIE
+        ========================================= */
+        .legal-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .legal-modal-overlay.open { display: flex; }
+
+        .legal-modal {
+            background: var(--bg);
+            max-width: 780px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 50px;
+            position: relative;
+        }
+
+        .legal-modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--title);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .legal-modal-close:hover { color: var(--link); }
+
+        .legal-modal h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+            color: var(--title);
+        }
+
+        .legal-modal h3 {
+            font-size: 18px;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: var(--title);
+        }
+
+        .legal-modal p, .legal-modal li {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .legal-modal ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        /* =========================================
+           CONTACT POPUP MODAL (SCHERMO CONTATTO)
+        ========================================= */
+        .contact-popup-card {
+            background: #161616;
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+            border-radius: 12px;
+            max-width: 480px;
+            width: 100%;
+            padding: 34px 28px;
+            position: relative;
+            color: #fff;
+            animation: modalPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPopIn {
+            from { opacity: 0; transform: scale(0.93) translateY(14px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .contact-popup-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 6px 10px;
+            transition: color 0.2s;
+        }
+
+        .contact-popup-close:hover { color: #fff; }
+
+        .contact-popup-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .contact-popup-tag {
+            font-family: var(--font-h);
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .contact-popup-title {
+            font-family: var(--font-h);
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .contact-popup-sub {
+            font-size: 13px;
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+
+        .contact-methods-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .contact-method-item {
+            background: #202020;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 13px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contact-method-item:hover {
+            border-color: rgba(201, 169, 110, 0.4);
+            background: #252525;
+        }
+
+        .contact-method-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.15);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-method-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-method-label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+
+        .contact-method-val {
+            display: block;
+            font-size: 15px;
+            color: #fff;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .contact-method-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-copy-contact {
+            background: rgba(201, 169, 110, 0.18);
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            color: var(--gold);
+            padding: 6px 12px;
+            font-size: 11.5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-p);
+            white-space: nowrap;
+        }
+
+        .btn-copy-contact:hover {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .contact-popup-footer {
+            text-align: center;
+        }
+
+        .btn-close-popup {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #aaa;
+            padding: 9px 24px;
+            font-size: 11.5px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-close-popup:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        @media (max-width: 480px) {
+            .contact-popup-card { padding: 24px 16px; }
+            .contact-popup-title { font-size: 21px; }
+            .contact-method-val { font-size: 13.5px; }
+            .contact-method-item { padding: 11px 12px; gap: 10px; }
+        }
+
+        /* =========================================
+           BARBER SECTION
+        ========================================= */
+        :root {
+            --barber-bg: #1A1A1A;
+            --barber-bg-alt: #111111;
+            --barber-accent: #D4A853;
+            --barber-text: #A0AEC0;
+            --barber-title: #FFFFFF;
+        }
+
+        /* Transition */
+        .transition-section {
+            position: relative;
+            padding: 120px 20px;
+            background: linear-gradient(180deg, #0E0402 0%, #170E0B 35%, #151515 70%, var(--barber-bg) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-top: 1px solid rgba(201, 169, 110, 0.25);
+            border-bottom: 1px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .transition-inner {
+            text-align: center;
+            max-width: 860px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .transition-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 8px 24px;
+            border: 1px solid rgba(212, 168, 83, 0.4);
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .transition-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--barber-accent);
+            box-shadow: 0 0 10px var(--barber-accent);
+        }
+
+        .transition-badge span {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--barber-accent);
+            font-family: var(--font-h);
+        }
+
+        .transition-title {
+            font-family: var(--font-h);
+            font-size: clamp(30px, 4.5vw, 52px);
+            color: #FFFFFF;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .transition-title span {
+            color: var(--barber-accent);
+        }
+
+        .transition-desc {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 680px;
+            margin: 0 auto 34px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .transition-switch-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 6px 10px;
+            border-radius: 40px;
+            border: 1px solid rgba(212, 168, 83, 0.25);
+        }
+
+        .transition-pill {
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .transition-pill.donna {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .transition-pill.donna:hover {
+            color: var(--gold);
+        }
+
+        .transition-pill.active-uomo {
+            background: var(--barber-accent);
+            color: #111111;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(212, 168, 83, 0.35);
+        }
+
+        /* Barber Hero */
+        .barber-hero {
+            min-height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .barber-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.5) 0%, rgba(17,17,17,0.75) 40%, rgba(17,17,17,0.98) 100%);
+        }
+
+        .barber-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .barber-hero-content h2 {
+            color: var(--barber-title);
+            font-size: clamp(38px, 5.5vw, 68px);
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        .barber-hero-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(17px, 2vw, 22px);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Barber Services */
+        .barber-services {
+            background: var(--barber-bg-alt);
+            padding: 120px 0;
+        }
+
+        .barber-section-title {
+            text-align: center;
+            color: var(--barber-accent);
+            font-family: var(--font-h);
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 60px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .barber-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .barber-service-card {
+            background: var(--barber-bg);
+            border: 1px solid rgba(212, 168, 83, 0.1);
+            padding: 40px 30px;
+            transition: all 0.3s;
+        }
+
+        .barber-service-card:hover {
+            border-color: var(--barber-accent);
+            transform: translateY(-5px);
+        }
+
+        .barber-service-card i {
+            color: var(--barber-accent);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .barber-service-card h3 {
+            color: var(--barber-title);
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .barber-service-card p {
+            color: var(--barber-text);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Barber Gallery */
+        .barber-gallery {
+            background: var(--barber-bg);
+            padding: 100px 0;
+        }
+
+        .barber-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .barber-gallery-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+        }
+
+        .barber-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+            filter: grayscale(20%);
+        }
+
+        .barber-gallery-item:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        /* Barber CTA */
+        .barber-cta {
+            background: var(--barber-bg-alt);
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .barber-cta h2 {
+            color: var(--barber-title);
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 20px;
+        }
+
+        .barber-btn {
+            background: transparent;
+            color: var(--barber-accent);
+            border: 1px solid var(--barber-accent);
+            padding: 14px 36px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .barber-btn:hover {
+            background: var(--barber-accent);
+            color: var(--barber-bg-alt);
+        }
+
+        /* Barber Wellness */
+        .barber-wellness {
+            background: #141414;
+            padding: 120px 0;
+            border-top: 1px solid rgba(212, 168, 83, 0.12);
+        }
+
+        /* Barber About */
+        .barber-about {
+            background: var(--barber-bg);
+            padding: 120px 0;
+            border-top: 1px solid rgba(212, 168, 83, 0.15);
+        }
+
+        .barber-about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1290px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .barber-about-text h2 {
+            font-size: clamp(38px, 4.5vw, 56px);
+            color: var(--barber-accent);
+            letter-spacing: 6px;
+            margin-bottom: 24px;
+        }
+
+        .barber-about-text p {
+            color: var(--barber-text);
+            font-size: 17px;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .barber-about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 36px 0;
+        }
+
+        .barber-about-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--barber-title);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .barber-about-feature i {
+            color: var(--barber-accent);
+            font-size: 14px;
+        }
+
+        .barber-about-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        /* Barber Treatments */
+        .barber-treatments {
+            background: var(--barber-bg-alt);
+            padding: 120px 0;
+        }
+
+        .barber-treatments .treatment-category-box {
+            background: rgba(212, 168, 83, 0.03);
+            border: 1px solid rgba(212, 168, 83, 0.1);
+        }
+
+        .barber-treatments .treatment-category-box:hover {
+            border-color: var(--barber-accent);
+        }
+
+        .barber-treatments .treatment-category-title {
+            color: var(--barber-accent);
+            border-bottom-color: rgba(212, 168, 83, 0.2);
+        }
+
+        .barber-treatments .treatment-row-img {
+            border-color: rgba(212, 168, 83, 0.25);
+        }
+
+        .barber-treatments .treatment-tag {
+            color: var(--barber-accent);
+        }
+
+        .barber-treatments .treatment-desc {
+            color: var(--barber-text);
+        }
+
+        /* Barber Hero Bottom */
+        .barber-hero-bottom {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+            background: rgba(17, 17, 17, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+        .barber-images-reversed .about-img-secondary {
+            right: auto;
+            left: -40px;
+        }
+
+        .nav-barber-btn {
+            border: 1px solid var(--barber-accent) !important;
+            color: var(--barber-accent) !important;
+            padding: 6px 14px !important;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-barber-btn:hover {
+            background: var(--barber-accent) !important;
+            color: #111 !important;
+        }
+
+        .barber-hero-stat {
+            padding: 30px 40px;
+            border-right: 1px solid rgba(212, 168, 83, 0.2);
+            color: var(--barber-text);
+        }
+
+        .barber-hero-stat:last-child { border-right: none; }
+
+        .barber-hero-stat-num {
+            font-family: var(--font-h);
+            font-size: 36px;
+            color: var(--barber-accent);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .barber-hero-stat-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        /* Barber Philosophy */
+        .barber-philosophy {
+            background: radial-gradient(circle at center, #201510 0%, #0F0906 100%);
+            padding: 130px 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(212, 168, 83, 0.2);
+            border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+        }
+
+        .barber-philosophy-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Barber Testimonials */
+        .barber-testimonials {
+            background: var(--barber-bg);
+            padding: 100px 0;
+            border-top: 1px solid rgba(212, 168, 83, 0.15);
+        }
+
+        .barber-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1290px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .barber-testimonial-card {
+            background: var(--barber-bg-alt);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .barber-testimonial-card:hover {
+            border-color: rgba(212, 168, 83, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .barber-testimonial-card .stars {
+            color: var(--barber-accent);
+        }
+
+        .barber-testimonial-card p {
+            color: var(--barber-text);
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 20px 0 28px;
+            font-style: italic;
+        }
+
+        .barber-testimonial-card .testimonial-author {
+            color: var(--barber-title);
+        }
+
+        .barber-testimonial-card .testimonial-role {
+            color: var(--barber-text);
+        }
+
+        /* Btn Amber */
+        .btn-amber {
+            background: var(--barber-accent);
+            color: #1a1a1a;
+            padding: 14px 36px;
+            font-family: var(--font-h);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-amber:hover {
+            background: #E8BD64;
+            color: #111;
+        }
+
+        /* Barber Responsive */
+        @media (max-width: 1024px) {
+            .barber-about-grid { gap: 50px; padding: 0 30px; }
+            .barber-testimonials-grid { padding: 0 30px; }
+        }
+
+        @media (max-width: 768px) {
+            .barber-about-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+            .barber-about, .barber-treatments { padding: 70px 0; }
+            .barber-testimonials { padding: 70px 0; }
+            .barber-testimonials-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+            .barber-hero-bottom { grid-template-columns: 1fr; }
+            .barber-hero-stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(212, 168, 83, 0.2);
+            }
+            .barber-hero-stat:last-child { border-bottom: none; }
+            .barber-philosophy { padding: 80px 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" onclick="closeMobileMenu()" aria-label="Chiudi menu"><i class="fas fa-times"></i></button>
+        <a href="#home" onclick="closeMobileMenu()">Home</a>
+        <a href="#about" onclick="closeMobileMenu()">Donna</a>
+        <a href="#wellness" onclick="closeMobileMenu()">Organic</a>
+        <a href="#treatments" onclick="closeMobileMenu()">Hair Spa</a>
+        <a href="#cura" onclick="closeMobileMenu()">Barberia</a>
+        <a href="#gallery" onclick="closeMobileMenu()">Estetica</a>
+        <a href="#recensioni" onclick="closeMobileMenu()">Recensioni</a>
+        <a href="#barber" onclick="closeMobileMenu()" style="color:var(--barber-accent);"><i class="fas fa-cut" style="margin-right:8px;"></i>Barber Studio</a>
+        <a href="#info" onclick="closeMobileMenu()">Orari</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contatti</a>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header" id="siteHeader">
+        <a href="#home" class="header-logo" aria-label="Antonio Farella Home">
+            <div class="logo-circle-badge">
+                <svg class="logo-rotating-svg" viewBox="0 0 200 200" aria-hidden="true">
+                    <defs>
+                        <path id="logoCirclePath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
+                    </defs>
+                    <text>
+                        <textPath href="#logoCirclePath" startOffset="0%">
+                            ? ANTONIO FARELLA ? HAIR DESIGNER STUDIO ? ANTONIO FARELLA ? HAIR DESIGNER STUDIO
+                        </textPath>
+                    </text>
+                </svg>
+                <img class="logo-inner-img" src="nuovo.png" alt="Antonio Farella Hair Designer Studio">
+            </div>
+        </a>
+
+        <nav aria-label="Navigazione principale">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">Donna</a></li>
+                <li><a href="#barber">Barberia</a></li>
+                <li><a href="#wellness">Hair Spa</a></li>
+                <li><a href="#treatments">Estetica</a></li>
+                <li><a href="#recensioni">Recensioni</a></li>
+                <li><a href="#barber" class="nav-barber-btn"><i class="fas fa-cut" style="margin-right:4px;"></i> Barber</a></li>
+                <li><a href="#info">Orari</a></li>
+                <li><a href="#contact">Contatti</a></li>
+            </ul>
+        </nav>
+
+        <button onclick="revealContact(this, 'phone')" class="header-cta" style="border:1px solid rgba(255,255,255,0.6);cursor:pointer;">Chiama Ora</button>
+
+        <div class="hamburger" onclick="openMobileMenu()" role="button" tabindex="0" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-title-marquee">
+                <div class="hero-title-track">
+                    <!-- Half 1 -->
+                    <span class="hero-title-item">Antonio Farella Hair Designer Studio</span>
+                    <span class="hero-title-separator">✧</span>
+                    <span class="hero-title-item">Antonio Farella Hair Designer Studio</span>
+                    <span class="hero-title-separator">✧</span>
+                    <!-- Half 2 (identical) -->
+                    <span class="hero-title-item" aria-hidden="true">Antonio Farella Hair Designer Studio</span>
+                    <span class="hero-title-separator" aria-hidden="true">✧</span>
+                    <span class="hero-title-item" aria-hidden="true">Antonio Farella Hair Designer Studio</span>
+                    <span class="hero-title-separator" aria-hidden="true">✧</span>
+                </div>
+            </div>
+            <span class="hero-label">Hair &amp; Beauty</span>
+            <p class="hero-desc">
+                Non seguire i trend. Non lasciare che la moda ti possieda, sii tu a decidere chi sei, ciò che vuoi esprimere nel modo in cui vesti e il modo in cui vivi. Quello che indossi è il tuo modo di presentarti al mondo, specialmente oggi che viviamo in un’era in cui il contatto umano è così rapido. La moda è un linguaggio istantaneo.
+            </p>
+            <div class="hero-actions">
+                <button onclick="revealContact(this, 'phone')" class="btn-primary" style="border:none;cursor:pointer;">Prenota Ora</button>
+                <a href="#about" class="btn-outline">Scopri di più</a>
+            </div>
+        </div>
+
+        <div class="hero-bottom">
+            <div class="hero-stat">
+                <div class="hero-stat-num">25+</div>
+                <div class="hero-stat-label">Anni di esperienza</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">3.000+</div>
+                <div class="hero-stat-label">Clienti soddisfatte</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-label">Prodotti professionali</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <img class="about-img-main"
+                         src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80"
+                         alt="Antonio Farella - Hair Designer" loading="lazy">
+                    <img class="about-img-secondary"
+                         src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80"
+                         alt="Salone Antonio Farella" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2 style="font-size: clamp(38px, 4.5vw, 56px); color: var(--gold); text-align: center; margin-bottom: 24px; letter-spacing: 6px;">Bellezza</h2>
+                    <p style="font-size: 18px; line-height: 1.8; color: var(--title); margin-bottom: 28px; text-align: center;">
+                        Il volto di chi ci sta davanti non è mai solo carne e ossa: è la somma di ogni luce che vi si è posata sopra, di ogni sorriso trattenuto e di ogni sguardo che lo ha reso, nel tempo, quello che è.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature"><i class="fas fa-check"></i> Colorazione professionale</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Trattamenti donna</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Spa salon</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Wedding &amp; Spose</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Acconciature</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Consulenza immagine</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 36px;">
+                        <button onclick="revealContact(this, 'phone')" class="btn-dark" style="border:none;cursor:pointer;">Prenota un appuntamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER HERO ==================== -->
+    <section class="barber-hero" id="barber">
+
+        <div class="barber-hero-content">
+            <span class="section-label" style="color:var(--barber-accent);">Barber Studio &amp; Grooming Maschile</span>
+            <h2>L'Arte dell'Eccellenza Maschile</h2>
+            <p>
+                Benvenuto in uno spazio concepito per l'uomo che considera la cura di sé non una routine, ma un rituale irrinunciabile. Uniamo la maestria della barbieria classica alle più avanzate tecniche di stilismo contemporaneo, offrendo un'esperienza d'élite in un ambiente di pura riservatezza.
+            </p>
+            <p style="font-size: 15px; color: rgba(255,255,255,0.7); max-width: 680px; margin: 0 auto 26px;">
+                <strong style="color: var(--barber-accent); font-weight: 500;">Oltre il Taglio: Un Rituale di Prestigio.</strong> Varcare la nostra porta significa concedersi una pausa dal ritmo frenetico del mondo. Tra profumi di essenze rare, panni caldi e la precisione di lame artigianali, riscoprirai il piacere di un'immagine impeccabile cucita su misura per te.
+            </p>
+            <div class="hero-actions">
+                <a href="tel:0803528244" class="btn-amber"><i class="fas fa-phone-alt" style="margin-right:8px;"></i>Prenota Ora</a>
+                <a href="#barber-treatments" class="btn-outline" style="border-color:rgba(212,168,83,0.5); color:var(--barber-accent);">Scopri i Trattamenti</a>
+            </div>
+        </div>
+
+        <div class="barber-hero-bottom">
+            <div class="barber-hero-stat">
+                <div class="barber-hero-stat-num">25+</div>
+                <div class="barber-hero-stat-label">Anni di Maestria Barbiera</div>
+            </div>
+            <div class="barber-hero-stat">
+                <div class="barber-hero-stat-num">1.500+</div>
+                <div class="barber-hero-stat-label">Barbe e Tagli Curati all'Anno</div>
+            </div>
+            <div class="barber-hero-stat">
+                <div class="barber-hero-stat-num">100%</div>
+                <div class="barber-hero-stat-label">Prodotti Artigianali &amp; Botanici</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER ABOUT ==================== -->
+    <section class="barber-about" id="barber-about">
+        <div class="container">
+            <div class="barber-about-grid">
+                <div class="about-images">
+                    <img class="barber-about-img"
+                         src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1000&q=80"
+                         alt="Antonio Farella Barbiere Tradizionale" loading="lazy">
+                    <img class="about-img-secondary" style="border-color: var(--barber-bg-alt);"
+                         src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80"
+                         alt="Strumenti Barberia Tradizionale" loading="lazy">
+                </div>
+                <div class="barber-about-text">
+                    <span class="section-label" style="color:var(--barber-accent);">Chi Siamo &amp; La Filosofia</span>
+                    <h2>Tradizione Sartoriale &amp; Visione Contemporanea</h2>
+                    <p>
+                        La nostra filosofia fonda le sue radici nell'antica scuola del grooming di lusso, dove ogni gesto ha un valore e ogni dettaglio è studiato con devozione. Non ci limitiamo a modellare barbe o scolpire capelli: analizziamo la struttura del volto, lo stile di vita e la personalità di ogni cliente per creare un look autentico, sofisticato e senza tempo.
+                    </p>
+                    <p>
+                        Varcare la nostra soglia significa affidarsi a mani esperte che fondono l'eredità della barbieria classica alle tecniche stilistiche più all'avanguardia, per regalare un'immagine curata nei minimi dettagli.
+                    </p>
+                    <div class="barber-about-features">
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Rasatura tradizionale al panno caldo</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Scultura e modellatura barba su misura</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Styling e taglio capelli high-precision</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Consulenza morfologica e studio dei volumi</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Lame artigianali e sfumature a mano libera</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Ambiente esclusivo di pura riservatezza</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 36px;">
+                        <a href="tel:0803528244" class="btn-amber">Prenota la tua Seduta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER WELLNESS / MEN'S HEAD SPA ==================== -->
+    <section class="barber-wellness" id="barber-wellness">
+        <div class="container">
+            <div class="barber-about-grid">
+                <div class="barber-about-text">
+                    <span class="section-label" style="color:var(--barber-accent);">Purezza &amp; Benessere</span>
+                    <h2>L'Eccellenza dei Materiali e dei Prodotti</h2>
+                    <p>
+                        Crediamo che il vero lusso risieda nella qualità assoluta. Per i nostri trattamenti selezioniamo esclusivamente cosmetici di nicchia, oli essenziali biologici e formulazioni ad alta concentrazione di attivi naturali.
+                    </p>
+                    <p>
+                        Ogni strumento   sanificato con protocolli di livello ospedaliero per garantirti il massimo standard di igiene e sicurezza. Un percorso che combina idroterapia, digitopressione decontratturante e profumi di essenze rare per un'esperienza di benessere totale.
+                    </p>
+                    <div class="barber-about-features">
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Cosmetici di nicchia e oli botanici biologici</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Formulazioni ad alta concentrazione di attivi</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Protocolli di sanificazione ospedaliera</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Massaggio decontratturante cervicale e viso</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Vaporizzatore all'ozono ed impacchi caldi</div>
+                        <div class="barber-about-feature"><i class="fas fa-check"></i> Riservatezza ed igiene al 100%</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 36px;">
+                        <a href="tel:0803528244" class="btn-amber">Scopri i Rituali Benessere</a>
+                    </div>
+                </div>
+                <div class="about-images barber-images-reversed">
+                    <img class="barber-about-img"
+                         src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
+                         alt="Men's Head Spa e Benessere Uomo" loading="lazy">
+                    <img class="about-img-secondary" style="border-color: var(--barber-bg-alt);"
+                         src="https://images.unsplash.com/photo-1584297091622-af8e5bd80b13?auto=format&fit=crop&w=800&q=80"
+                         alt="Oli Essenziali Barba e Capelli" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER SERVICES QUICK GRID ==================== -->
+    <section class="barber-services" id="barber-services">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-label" style="color:var(--barber-accent);">Menu Servizi</span>
+                <h2 class="barber-section-title" style="margin-bottom: 16px;">I Servizi di Barberia</h2>
+                <p style="color:var(--barber-text); max-width: 720px; margin: 0 auto; font-size: 16px;">
+                    Dalla cura quotidiana ai trattamenti intensivi per barba e capelli: una proposta completa studiata per rispondere a ogni esigenza di stile maschile.
+                </p>
+            </div>
+            <div class="barber-services-grid">
+                <div class="barber-service-card">
+                    <i class="fas fa-razor"></i>
+                    <h3>Rasatura Tradizionale al Panno Caldo (The Royal Shave)</h3>
+                    <p>Un percorso sensoriale completo in sei fasi: dalla preparazione della pelle con oli pre-rasatura botanici, all'applicazione del sapone montato a mano con pennelli in tasso, fino al doppio panno caldo e al massaggio finale lenitivo. La pelle ritrova elasticit  e morbidezza, libera da ogni irritazione.</p>
+                </div>
+                <div class="barber-service-card">
+                    <i class="fas fa-ruler-combined"></i>
+                    <h3>Scultura e Modellatura Barba su Misura</h3>
+                    <p>La barba   l'abito del volto. Attraverso una consulenza morfologica iniziale, definiamo le geometrie ideali per valorizzare i tuoi lineamenti. Utilizziamo forbici di precisione e sfumature a mano libera, rifinendo i contorni con rasoio a mano per una linea nitida e duratura.</p>
+                </div>
+                <div class="barber-service-card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Styling e Taglio Capelli High-Precision</h3>
+                    <p>Un servizio che combina architettura del capello e studio dei volumi. Ogni taglio viene eseguito tenendo conto delle attaccature naturali e della crescita della fibra, garantendoti un'acconciatura composta e facile da gestire anche a casa.</p>
+                </div>
+                <div class="barber-service-card">
+                    <i class="fas fa-spa"></i>
+                    <h3>Rituale Viso &amp; Panno Freddo Lenitivo</h3>
+                    <p>Detersione delicata con vaporizzatore all'ozono, massaggio distensivo e panno freddo per richiudere i pori e rinfrescare l'epidermide in profondit .</p>
+                </div>
+                <div class="barber-service-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Camouflage Naturale Tono su Tono</h3>
+                    <p>Trattamento cromatico ultra-discreto per sfumare i primi capelli bianchi e uniformare la barba con un risultato completamente naturale.</p>
+                </div>
+                <div class="barber-service-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Protocollo Cute &amp; Anticaduta</h3>
+                    <p>Scrub detossinante al carbone vegetale, stimolazione capillare e fiale concentrate agli attivi botanici per rinforzare la fibra alla radice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER DETAILED TREATMENTS ==================== -->
+    <section class="barber-treatments" id="barber-treatments">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-label" style="color:var(--barber-accent);">Carta Completa</span>
+                <h2 style="font-size: clamp(38px, 4.5vw, 56px); color: var(--barber-accent); text-align: center; margin-bottom: 24px; letter-spacing: 6px;">Trattamenti Uomo</h2>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--barber-text); max-width: 820px; margin: 0 auto; text-align: center;">
+                    Scopri nel dettaglio i percorsi dedicati al grooming maschile: ciascun rituale è eseguito con maestria artigianale e prodotti di alta gamma formulati appositamente per le esigenze dell'uomo.
+                </p>
+            </div>
+
+            <div class="treatments-rows-list">
+
+                <!-- RIGA 1: Rasatura & Barba Couture -->
+                <div class="treatment-row">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=1000&q=80" alt="Rasatura Tradizionale Uomo" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-razor"></i> Rasatura &amp; Barba Couture
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Rasatura Tradizionale al Panno Caldo (The Royal Shave)</span>
+                                <span class="treatment-tag">Rituale Signature</span>
+                            </div>
+                            <p class="treatment-desc">Un percorso sensoriale completo in sei fasi: dalla preparazione della pelle con oli pre-rasatura botanici, all'applicazione del sapone montato a mano con pennelli in tasso, fino al doppio panno caldo e al massaggio finale lenitivo. La pelle ritrova elasticitÀ e morbidezza, libera da ogni irritazione.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Scultura e Modellatura Barba su Misura</span>
+                                <span class="treatment-tag">Morfologia Viso</span>
+                            </div>
+                            <p class="treatment-desc">La barba è l'abito del volto. Attraverso una consulenza morfologica iniziale, definiamo le geometrie ideali per valorizzare i tuoi lineamenti. Utilizziamo forbici di precisione e sfumature a mano libera, rifinendo i contorni con rasoio a mano per una linea nitida e duratura.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Impacco Idratante Barba al Burro di Karit  &amp; Sandalo</span>
+                                <span class="treatment-tag">Anti-Prurito &amp; Morbidezza</span>
+                            </div>
+                            <p class="treatment-desc">Trattamento nutriente intensivo per ammorbidire barbe ruvide o secche, lenire il prurito sotto la barba e lucidare il pelo con oli essenziali naturali.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Rasatura Totale Cranio con Massaggio Balsamico</span>
+                                <span class="treatment-tag">Head Shave Luxury</span>
+                            </div>
+                            <p class="treatment-desc">Rasatura della testa a lama libera con preparazione cutanea emolliente e finitura opaca lenitiva anti-rossore.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 2: Taglio Sartoriale & Fade -->
+                <div class="treatment-row reversed">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1000&q=80" alt="Taglio Maschile e Skin Fade" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-cut"></i> Taglio Sartoriale Maschile &amp; Fade
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Styling e Taglio Capelli High-Precision</span>
+                                <span class="treatment-tag">Architettura Capello</span>
+                            </div>
+                            <p class="treatment-desc">Un servizio che combina architettura del capello e studio dei volumi. Ogni taglio viene eseguito tenendo conto delle attaccature naturali e della crescita della fibra, garantendoti un'acconciatura composta e facile da gestire anche a casa.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Skin Fade &amp; Sfumatura Millimetrica a Lama</span>
+                                <span class="treatment-tag">Alta Precisione</span>
+                            </div>
+                            <p class="treatment-desc">Graduazione da zero millimetri eseguita con shaver e forbici da rifinitura per una transizione fluida e pulita, senza scalini visibili.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Taglio Classico Sartoriale a Forbice</span>
+                                <span class="treatment-tag">Eleganza Gentleman</span>
+                            </div>
+                            <p class="treatment-desc">Tecnica tradizionale forbice su pettine per linee classiche ed equilibrate, ideali per acconciature con riga laterale, all'indietro o spettinati eleganti.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Texturizzazione a Rasoio &amp; Finish Matte</span>
+                                <span class="treatment-tag">Volume &amp; Tenuta</span>
+                            </div>
+                            <p class="treatment-desc">Lavorazione della ciocca per donare movimento e leggerezza a capelli spessi o difficili da disciplinare, completata con paste argillose artigianali.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Trattamento Densificante Fibre &amp; Cheratina Uomo</span>
+                                <span class="treatment-tag">Corporità Stelo</span>
+                            </div>
+                            <p class="treatment-desc">Applicazione di cheratina liquida per rinforzare e dare pienezza visibile immediata ai capelli sottili o diradati.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 3: Men's Spa, Cute & Trattamenti Specifici -->
+                <div class="treatment-row">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=80" alt="Cura Cute Uomo e Massaggio" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-spa"></i> Men's Spa &amp; Cura del Cuoio Capelluto
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Japanese Head Spa Maschile con Vaporizzatore all'Ozono</span>
+                                <span class="treatment-tag">Rigenerante</span>
+                            </div>
+                            <p class="treatment-desc">Bagno di vapore all'ozono per dilatare i pori e ossigenare i bulbi, abbinato a digitopressione shiatsu sul cuoio capelluto e collo per allentare le tensioni.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Detox Cute con Scrub Esfoliante al Carbone Attivo</span>
+                                <span class="treatment-tag">Purificante Sebo</span>
+                            </div>
+                            <p class="treatment-desc">Rimuove residui di cere, inquinamento e sebo in eccesso, liberando i follicoli per consentire una crescita più vigorosa dei capelli.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Protocollo Fiale Anticaduta &amp; Fiale Rinvigorenti</span>
+                                <span class="treatment-tag">Trattamento Urto</span>
+                            </div>
+                            <p class="treatment-desc">Trattamento mirato a base di cellule staminali vegetali, caffeina e biotina per frenare il diradamento precoce e rinvigorire le radici deboli.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Pulizia Viso Express Uomo con Maschera all'Argilla Nera</span>
+                                <span class="treatment-tag">Pelle Luminosa</span>
+                            </div>
+                            <p class="treatment-desc">Rimozione delicata dei punti neri, purificazione dei pori e distensione della grana cutanea in soli 20 minuti, ideale prima di un evento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 4: Grooming Sposo & Total Look Cerimonia -->
+                <div class="treatment-row reversed">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80" alt="Grooming Sposo Maschile" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-gem"></i> Grooming Sposo &amp; Cerimonia Uomo
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Pacchetto Total Grooming Sposo Antonio Farella</span>
+                                <span class="treatment-tag">Wedding Day</span>
+                            </div>
+                            <p class="treatment-desc">Percorso completo per lo sposo: consulenza immagine preventiva, taglio sartoriale nei giorni precedenti, rasatura reale o rifinitura barba il giorno delle nozze, trattamento viso e styling fotografico impeccabile.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Camouflage Barba &amp; Capelli Senza Riflessi Rossi</span>
+                                <span class="treatment-tag">Effetto Naturale</span>
+                            </div>
+                            <p class="treatment-desc">Pigmentazione a freddo che copre con discrezione i primi capelli grigi e armonizza il colore della barba, svanendo gradualmente senza ricrescita netta.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Rifinitura Rapida Contorni &amp; Baffi Pre-Evento</span>
+                                <span class="treatment-tag">Fast Luxury</span>
+                            </div>
+                            <p class="treatment-desc">Sessione express per rinfrescare basette, contorni del collo e sfumatura barba a ridosso di cerimonie, incontri d'affari o servizi fotografici.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 5: Capelli for You Uomo ✧ Infoltimento Non Chirurgico -->
+                <div class="treatment-row">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80" alt="Capelli for You Protesi Capillari Uomo" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-crown"></i> Capelli for You ✧ Uomo
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Protesi Capillari Maschili Non Chirurgiche</span>
+                                <span class="treatment-tag">Soluzione Calvizie</span>
+                            </div>
+                            <p class="treatment-desc">Soluzioni all'avanguardia per risolvere diradamento e calvizie maschile. Membrane traspiranti a contatto epidermico con capelli naturali al 100%, invisibili alla vista e al tatto.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Integrazione, Taglio Su Misura &amp; Manutenzione</span>
+                                <span class="treatment-tag">Cabina Riservata</span>
+                            </div>
+                            <p class="treatment-desc">Consulenza preliminare e applicazione in cabina privata con massima discrezione. Taglio sartoriale per fondere perfettamente la membrana con i tuoi capelli esistenti, consentendoti di fare sport, nuoto e doccia in totale libertà.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="tel:0803528244" class="btn-amber" style="padding: 16px 42px; font-size: 14px; letter-spacing: 2px;">
+                    <i class="fas fa-calendar-check" style="margin-right: 10px;"></i>Prenota il tuo Trattamento Barber
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER PHILOSOPHY ==================== -->
+    <section class="barber-philosophy" id="barber-philosophy">
+        <div class="container">
+            <div class="barber-philosophy-content">
+                <span class="section-label" style="color:var(--barber-accent);">Esperienza Cliente &amp; Riservatezza</span>
+                <h2 class="cura-title" style="color:var(--barber-accent);">La Tua Riserva Privata di Benessere</h2>
+                <div class="cura-separator" style="color:var(--barber-accent);">?</div>
+                <div class="cura-text-wrap">
+                    <p class="cura-lead">
+                        Garantiamo ad ogni cliente la massima puntualitÀ, privacy e un'attenzione esclusiva senza sovrapposizioni. La tua seduta comprende una consulenza d'immagine dedicata e una selezione di distillati pregiati o caffè gourmet da degustare durante il servizio.
+                    </p>
+                    <p class="cura-body">
+                        Varcare la nostra porta significa concedersi una pausa dal ritmo frenetico del mondo. Tra profumi di essenze rare, panni caldi e la precisione di lame artigianali, riscoprirai il piacere di un'immagine impeccabile cucita su misura per te.
+                    </p>
+                    <p class="cura-quote" style="color:#D4A853;">
+                        «Il lusso più grande è il tempo che dedichi a te stesso. Scegli il tuo trattamento ed entra a far parte del nostro club esclusivo.»
+                    </p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="tel:0803528244" class="btn-amber" style="padding: 16px 44px; font-size: 14px;">
+                        <i class="fas fa-phone-alt" style="margin-right: 10px;"></i>Riserva il Tuo Appuntamento
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER GALLERY ==================== -->
+    <section class="barber-gallery" id="barber-gallery">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-label" style="color:var(--barber-accent);">Galleria Lavori</span>
+                <h2 style="font-size: clamp(30px, 4vw, 47px); color: var(--barber-title); margin-top: 14px; text-transform: uppercase; font-family: var(--font-h);">
+                    Portfolio &amp; Barber Studio
+                </h2>
+            </div>
+            <div class="barber-gallery-grid">
+                <div class="barber-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Skin fade precisione uomo" loading="lazy">
+                </div>
+                <div class="barber-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=800&q=80" alt="Rasatura tradizionale con panno caldo" loading="lazy">
+                </div>
+                <div class="barber-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80" alt="Rasoio a mano libera e strumenti barberia" loading="lazy">
+                </div>
+                <div class="barber-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Modellatura barba sartoriale" loading="lazy">
+                </div>
+                <div class="barber-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Interno Barber Studio Antonio Farella" loading="lazy">
+                </div>
+                <div class="barber-gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80" alt="Stile ed eleganza maschile" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BARBER CTA FINALE ==================== -->
+    <section class="barber-cta">
+        <div class="container">
+            <span class="section-label" style="color:var(--barber-accent);">Club Esclusivo</span>
+            <h2>Riserva Ora il Tuo Appuntamento</h2>
+            <p style="color:var(--barber-text); margin-bottom: 30px; font-size: 17px; max-width: 650px; margin-left: auto; margin-right: auto;">
+                Il lusso più grande è il tempo che dedichi a te stesso. Scegli il tuo trattamento ed entra a far parte del nostro club esclusivo.
+            </p>
+            <div class="cta-buttons" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+                <a href="tel:0803528244" class="btn-amber" style="padding: 16px 44px;">
+                    <i class="fas fa-phone-alt" style="margin-right:10px;"></i>Chiama: 080 352 8244
+                </a>
+                <a href="mailto:antonio.farella@hotmail.com" class="btn-outline" style="border-color:rgba(212,168,83,0.4); color:var(--barber-accent); padding:16px 44px;">
+                    <i class="fas fa-envelope" style="margin-right:10px;"></i>Scrivici via Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BENESSERE SECTION ==================== -->
+    <section class="wellness" id="wellness">
+        <div class="container">
+            <div class="wellness-grid">
+                <div class="wellness-text">
+                    <h2 style="font-size: clamp(38px, 4.5vw, 56px); color: var(--gold); text-align: center; margin-bottom: 24px; letter-spacing: 6px;">Benessere</h2>
+                    <p style="font-size: 18px; line-height: 1.8; color: var(--title); margin-bottom: 28px; text-align: center;">
+                        Non esiste vera estetica senza benessere: la pelle che risplende, lo sguardo che si illumina, la postura che si distende sono il riflesso naturale di chi ha imparato ad ascoltarsi.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature"><i class="fas fa-check"></i> Head Spa &amp; Massaggio Cutaneo</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Rituali Olistici &amp; Relax</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Oli Essenziali &amp; Botanica</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Hair Therapy Rigenerante</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Trattamenti Detossinanti</div>
+                        <div class="about-feature"><i class="fas fa-check"></i> Atmosfera Privata &amp; Esclusiva</div>
+                    </div>
+                    <div style="text-align: center; margin-top: 36px;">
+                        <a href="tel:0803528244" class="btn-dark">Scopri i Rituali Benessere</a>
+                    </div>
+                </div>
+                <div class="wellness-images">
+                    <img class="wellness-img-main"
+                         src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
+                         alt="Area Benessere e Spa Antonio Farella" loading="lazy">
+                    <img class="wellness-img-secondary"
+                         src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80"
+                         alt="Rituali Benessere" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TRATTAMENTI SECTION ==================== -->
+    <section class="services" id="treatments">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: clamp(38px, 4.5vw, 56px); color: var(--gold); text-align: center; margin-bottom: 24px; letter-spacing: 6px;">Trattamenti</h2>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--alt-text); max-width: 820px; margin: 0 auto; text-align: center;">
+                    Dalla rigenerazione molecolare della fibra alla cura del cuoio capelluto: scopri la nostra carta dei trattamenti personalizzati, creati per valorizzare la salute e la lucentezza naturale dei tuoi capelli.
+                </p>
+            </div>
+
+            <!-- LISTA TRATTAMENTI IN FILA CON FOTO ACCANTO -->
+            <div class="treatments-rows-list">
+
+                <!-- RIGA 1: Ricostruzione & Cura Stelo -->
+                <div class="treatment-row">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80" alt="Ricostruzione & Cura Stelo" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-sparkles"></i> Ricostruzione &amp; Cura Stelo
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Botox Capillare Anti-Age</span>
+                                <span class="treatment-tag">Rimpolpante</span>
+                            </div>
+                            <p class="treatment-desc">Infusione concentrata di acido ialuronico e collagene per ridensificare e ringiovanire la fibra capillare devitalizzata.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Ricostruzione Molecolare</span>
+                                <span class="treatment-tag">Riparazione</span>
+                            </div>
+                            <p class="treatment-desc">Trattamento intensivo che ripara e rigenera i legami molecolari dei capelli danneggiati da calore o trattamenti chimici.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Laminazione Effetto Specchio</span>
+                                <span class="treatment-tag">Glossy Glass Hair</span>
+                            </div>
+                            <p class="treatment-desc">Sigillatura termica a film sottile per una lucentezza a specchio straordinaria, protezione termica ed eliminazione del crespo.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Idratazione Profonda e Nutrizione</span>
+                                <span class="treatment-tag">Nutriente</span>
+                            </div>
+                            <p class="treatment-desc">Bagno emolliente e rigenerante che dona morbidezza immediata, elasticità e setosità al tatto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 2: Cute & Head Spa -->
+                <div class="treatment-row reversed">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80" alt="Cute & Head Spa" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-spa"></i> Cute &amp; Head Spa
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Japanese Head Spa con Idroterapia</span>
+                                <span class="treatment-tag">Rituale Signature</span>
+                            </div>
+                            <p class="treatment-desc">Esperienza immersiva con cascata d'acqua termale, aromaterapia e digitopressione distensiva cranio-facciale.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Scrub Detossinante Purificante</span>
+                                <span class="treatment-tag">Detox Cute</span>
+                            </div>
+                            <p class="treatment-desc">Esfoliazione micro-granulare al carbone attivo e argille per liberare i follicoli da impurità, sebo e residui.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Trattamento Cute Lenitivo Calming</span>
+                                <span class="treatment-tag">Anti-Rossore</span>
+                            </div>
+                            <p class="treatment-desc">Formula calmante e riequilibrante per donare sollievo immediato a cute arrossata, pruriginosa o reattiva.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Protocollo Anticaduta &amp; Fiale Energizzanti</span>
+                                <span class="treatment-tag">Rinforzante</span>
+                            </div>
+                            <p class="treatment-desc">Trattamento mirato con fiale stimolanti e massaggio circolatorio per rinvigorire i bulbi e frenare la caduta stagionale.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 3: Colore Sartoriale & Luce -->
+                <div class="treatment-row">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1000&q=80" alt="Colore Sartoriale & Luce" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-palette"></i> Colore Sartoriale &amp; Luce
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Balayage Couture &amp; Sfumature 3D</span>
+                                <span class="treatment-tag">Luce Naturale</span>
+                            </div>
+                            <p class="treatment-desc">Schiariture artigianali a mano libera studiate sulla morfologia del viso per un effetto sunkissed brillante e senza stacco.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Gloss Tonalizzante Bagno di Luce</span>
+                                <span class="treatment-tag">Zero Ammoniaca</span>
+                            </div>
+                            <p class="treatment-desc">Illuminante e rivitalizzante per ravvivare il colore, esaltare i riflessi dorati o freddi e chiudere le cuticole.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Colorazione Permanente</span>
+                                <span class="treatment-tag">Protezione Totale</span>
+                            </div>
+                            <p class="treatment-desc">Copertura al 100% dei capelli bianchi con pigmenti puri e formule protettive che lasciano il capello luminoso e idratato.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Schiaritura e Colorazione Organica</span>
+                                <span class="treatment-tag">Bassa Ossidazione</span>
+                            </div>
+                            <p class="treatment-desc">Colorazione e schiaritura organica a bassa ossidazione: illumina i capelli con luce intensa e duratura, rispettando struttura, cheratina e idratazione naturale. Una schiaritura che accarezza invece di aggredire — bellezza e benessere del capello, senza compromessi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 4: Forma, Styling & Spose -->
+                <div class="treatment-row reversed">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Forma, Styling & Spose" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-cut"></i> Forma, Styling &amp; Spose
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Taglio Sartoriale &amp; Morfologia</span>
+                                <span class="treatment-tag">Personalizzato</span>
+                            </div>
+                            <p class="treatment-desc">Studio approfondito della forma del viso per creare linee di taglio personalizzate e facili da gestire a casa.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Trattamento Lisciante alla Seta</span>
+                                <span class="treatment-tag">Anti-Crespo 3 Mesi</span>
+                            </div>
+                            <p class="treatment-desc">Disciplina attiva a base di aminoacidi della seta per capelli perfettamente lisci, morbidi e resistenti all'umidità.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Piega Luxury &amp; Finish Alta Moda</span>
+                                <span class="treatment-tag">Lunga Tenuta</span>
+                            </div>
+                            <p class="treatment-desc">Asciugatura professionale con spazzole termiche e finish protettivo satinato per un volume naturale e duraturo.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Total Look Sposa &amp; Cerimonia</span>
+                                <span class="treatment-tag">Haute Coiffure</span>
+                            </div>
+                            <p class="treatment-desc">Consulenza d'immagine dedicata, prove acconciatura esclusive e styling per il giorno del matrimonio o eventi speciali.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGA 5: Capelli for You ✧ Protesi Capillari Uomo & Donna -->
+                <div class="treatment-row reversed">
+                    <div class="treatment-row-img">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80" alt="Capelli for You Protesi Capillari" loading="lazy">
+                    </div>
+                    <div class="treatment-category-box">
+                        <div class="treatment-category-title">
+                            <i class="fas fa-crown"></i> Capelli for You
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Trattamenti di Protesi Capillari</span>
+                                <span class="treatment-tag">Uomo &amp; Donna</span>
+                            </div>
+                            <p class="treatment-desc">Nel nostro salone eseguiamo anche trattamenti specializzati di protesi capillari Capelli for You, sia per uomo che per donna. Soluzioni all'avanguardia di infoltimento non chirurgico per risolvere diradamento e calvizie con effetto naturale al 100%, traspirabilità e massima discrezione.</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-name">
+                                <span>Integrazione &amp; Taglio Sartoriale Protesi</span>
+                                <span class="treatment-tag">Personalizzato</span>
+                            </div>
+                            <p class="treatment-desc">Consulenza personalizzata in cabina riservata, applicazione, igienizzazione e taglio su misura per fondere perfettamente la membrana con i tuoi capelli, garantendo totale sicurezza in ogni momento della vita quotidiana.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="tel:0803528244" class="btn-gold" style="padding: 16px 42px; font-size: 14px; letter-spacing: 2px;">
+                    <i class="fas fa-calendar-check" style="margin-right: 10px;"></i>Prenota il tuo Trattamento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LA CURA RACCONTA CHI SEI ==================== -->
+    <section class="cura-section" id="cura">
+        <div class="container">
+            <div class="cura-content">
+                <span class="section-label">Filosofia</span>
+                <h2 class="cura-title">La cura racconta chi sei</h2>
+                <div class="cura-separator">✧</div>
+                <div class="cura-text-wrap">
+                    <p class="cura-lead">
+                        Ogni volto porta con sé una storia, e ogni gesto di cura che gli dedichi ne diventa parte. La cura estetica non è un ritocco superficiale, ma l'arte di ascoltare pelle, lineamenti ed espressione, per valorizzare — non trasformare — chi sei davvero.
+                    </p>
+                    <p class="cura-body">
+                        Non insegue un ideale standardizzato di bellezza, ma scopre la tua unicità: texture della pelle, forma del sorriso, energia dello sguardo. Ogni trattamento diventa un dialogo tra le tue esigenze e la tua identità, un tempo dedicato a te che si trasforma in sicurezza.
+                    </p>
+                    <p class="cura-quote">
+                        «La vera bellezza rivela, non nasconde: illumina i tratti che ti rendono riconoscibile, dona cura senza sacrificare la naturalezza — perché prendersi cura di sé è un modo di onorare la propria storia.»
+                    </p>
+                </div>
+                <div class="cura-cta-wrap">
+                    <button type="button" id="btnConsulenza" onclick="revealConsulenzaPhone()" class="btn-primary" style="padding: 16px 42px; font-size: 14px; letter-spacing: 2px; cursor: pointer; border: none;">
+                        <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i><span id="btnConsulenzaText">Prenota la tua Consulenza</span>
+                    </button>
+                    <div id="curaPhoneReveal" class="cura-phone-card">
+                        <div class="cura-phone-title">Chiama direttamente il salone per prenotare:</div>
+                        <a href="tel:0803528244" class="cura-phone-big">
+                            <i class="fas fa-phone-alt"></i> 080 352 8244
+                        </a>
+                        <div class="cura-phone-sub">Orari Salone: Mar–Ven 09:00–19:00 | Sab 09:00–18:00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Il nostro lavoro</span>
+                <h2>Portfolio &amp; Galleria</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item tall">
+                    <img src="https://images.unsplash.com/photo-1522337094346-297ff04e9c7e?auto=format&fit=crop&w=800&q=80" alt="Hair Styling Waves" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=800&q=80" alt="Hair Look Brunette" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=800&q=80" alt="Salone Interior Station" loading="lazy">
+                </div>
+                <div class="gallery-item tall">
+                    <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=800&q=80" alt="Curls and Texture" loading="lazy">
+                </div>
+                <div class="gallery-item wide">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1200&q=80" alt="Editorial Fashion Hair" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=800&q=80" alt="Blowout and Style" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== RECENSIONI CLIENTI ==================== -->
+    <section class="customer-reviews" id="recensioni">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">La tua esperienza conta</span>
+                <h2>Condividi la tua recensione</h2>
+            </div>
+            <div class="reviews-summary" aria-label="Riepilogo delle recensioni">
+                <strong id="reviewAverage"> </strong>
+                <span><span class="customer-review-stars" aria-label="Valutazione"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span><small id="reviewCount">0 recensioni</small></span>
+                <span class="reviews-summary-note">La voce autentica delle nostre clienti.</span>
+                <div style="margin-top: 14px;">
+                    <a href="recensioni.html" class="btn-outline" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;">
+                        <i class="fas fa-star" style="color:var(--gold);"></i> Vedi tutte le recensioni &rarr;
+                    </a>
+                </div>
+            </div>
+            <div class="reviews-layout">
+                <div id="customerReviewList" aria-live="polite">
+                    <!-- Nessuna recensione fittizia: le recensioni reali dei clienti appariranno qui -->
+                </div>
+                <form class="review-form" id="customerReviewForm">
+                    <h3>Lascia la tua recensione</h3>
+                    <label for="customerReviewName">Il tuo nome
+                        <input id="customerReviewName" name="name" required maxlength="80" type="text" placeholder="Nome e iniziale del cognome">
+                    </label>
+                    <label for="customerReviewRating">La tua valutazione
+                        <select id="customerReviewRating" name="rating" required>
+                            <option value="5">★★★★★ - Eccellente</option>
+                            <option value="4">★★★★☆ - Molto buona</option>
+                            <option value="3">★★★☆☆ - Buona</option>
+                            <option value="2">★★☆☆☆ - Da migliorare</option>
+                            <option value="1">★☆☆☆☆ - Insufficiente</option>
+                        </select>
+                    </label>
+                    <label for="customerReviewText">La tua esperienza
+                        <textarea id="customerReviewText" name="text" required maxlength="400" placeholder="Raccontaci la tua esperienza..."></textarea>
+                    </label>
+                    <button type="submit">Pubblica recensione</button>
+                    <p class="review-form-note">La recensione apparir  subito. Versione statica: i dati vengono salvati in questo browser.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== TRANSITION SECTION ==================== -->
+    <div class="transition-section" id="transition-barber">
+        <div class="transition-inner">
+            <div class="transition-badge">
+                <span class="transition-badge-dot"></span>
+                <span>Due Mondi — Un'Unica Eccellenza</span>
+            </div>
+            <h2 class="transition-title">Dalla Bellezza Donna al <span>Grooming Maschile</span></h2>
+            <p class="transition-desc">
+                Due spazi dedicati all'interno del nostro salone: la delicatezza e la luce dell'haute coiffure femminile si uniscono al fascino senza tempo della classica barberia sartoriale italiana.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        Antonio Farella
+                        <span>Hair Designer Studio</span>
+                    </div>
+                    <p class="footer-about">
+                        Il tuo salone di fiducia per capelli, bellezza e benessere. Ti accogliamo in un ambiente elegante e professionale dove la tua bellezza è la nostra missione.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Navigazione</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Bellezza</a></li>
+                        <li><a href="#wellness">Benessere</a></li>
+                        <li><a href="#treatments">Trattamenti</a></li>
+                        <li><a href="#cura">La Cura</a></li>
+                        <li><a href="#gallery">Portfolio</a></li>
+                        <li><a href="#barber">Barber Studio</a></li>
+                        <li><a href="#info">Orari</a></li>
+                        <li><a href="#contact">Contatti</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Servizi</h5>
+                    <ul class="footer-links">
+                        <li><a href="#services">Colorazione</a></li>
+                        <li><a href="#services">Trattamenti Donna</a></li>
+                        <li><a href="#services">Spa Salon</a></li>
+                        <li><a href="#services">Spose</a></li>
+                        <li><a href="#services">Taglio &amp; Piega</a></li>
+                        <li><a href="#services">Consulenza</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Contatti</h5>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Via Stefano Jacini 78 CAP 70125<br>Bari, Puglia</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:0803528244" style="color:var(--alt-text);">080 352 8244</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:antonio.farella@hotmail.com" style="color:var(--alt-text);">antonio.farella@hotmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>lun–Ven: 09:00 19:00<br>Sab: 09:00 18:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Antonio Farella Hair Designer Studio. Tutti i diritti riservati.</p>
+                <div class="footer-legal">
+                    <a href="#" onclick="openModal('privacyModal'); return false;">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#" onclick="openModal('cookieModal'); return false;">Cookie Policy</a>
+                    <span>|</span>
+                    <span>P.IVA: IT09170380720</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Torna su">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Reveal contact info on click ✧ first click shows number/email, second click calls/emails
+        function revealContact(btn, type) {
+            if (btn.dataset.revealed === 'true') {
+                // Second click ✧ follow the link
+                if (type === 'phone') window.location.href = 'tel:0803528244';
+                if (type === 'email') window.location.href = 'mailto:antonio.farella@hotmail.com';
+                return;
+            }
+            btn.dataset.revealed = 'true';
+            if (type === 'phone') {
+                btn.innerHTML = '<i class="fas fa-phone-alt" style="margin-right:8px;"></i>080 352 8244';
+            } else if (type === 'email') {
+                btn.innerHTML = '<i class="fas fa-envelope" style="margin-right:8px;"></i>antonio.farella@hotmail.com';
+            }
+        }
+
+
+        // Header scroll effect
+        const header = document.getElementById('siteHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mostra numero al click su Prenota la tua Consulenza
+        function revealConsulenzaPhone() {
+            const card = document.getElementById('curaPhoneReveal');
+            const btnText = document.getElementById('btnConsulenzaText');
+            if (card) {
+                card.classList.toggle('show');
+                if (card.classList.contains('show')) {
+                    btnText.innerHTML = '<i class="fas fa-phone-alt" style="margin-right:8px;"></i> 080 352 8244';
+                } else {
+                    btnText.innerText = 'Prenota la tua Consulenza';
+                }
+            }
+        }
+
+        // Mobile menu
+        function openMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth appear animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.about-text, .wellness-text, .treatment-row, .cura-content, .gallery-item, .testimonial-card, .info-block, .transition-inner, .barber-hero-content, .barber-hero-stat, .barber-about-text, .barber-service-card, .barber-gallery-item, .barber-testimonial-card, .barber-philosophy-content, .barber-cta').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(el);
+        });
+
+        const reviewForm = document.getElementById('customerReviewForm');
+        const reviewList = document.getElementById('customerReviewList');
+        const reviewAverage = document.getElementById('reviewAverage');
+        const reviewCount = document.getElementById('reviewCount');
+        const reviewStorageKey = 'antonioFarellaReviews';
+        const API_URL = 'api/recensioni.php';
+
+        function renderCustomerReview(review) {
+            const card = document.createElement('article');
+            card.className = 'customer-review-card';
+
+            const head = document.createElement('div');
+            head.className = 'customer-review-head';
+
+            const author = document.createElement('strong');
+            author.textContent = review.nome || review.name;
+
+            const stars = document.createElement('div');
+            stars.className = 'customer-review-stars';
+            const rating = Number(review.valutazione || review.rating) || 0;
+            stars.setAttribute('aria-label', rating + ' stelle');
+            stars.setAttribute('data-rating', rating);
+
+            // USiamo i codici HTML numerici per forzare la visualizzazione a ogni costo
+            const filledStar = '&#9733;';
+            const emptyStar = '&#9734;';
+            stars.innerHTML = '<span style="color: #C9A96E; font-size: 20px; font-family: sans-serif !important;">' + filledStar.repeat(rating) + emptyStar.repeat(5 - rating) + '</span>';
+
+            head.append(author, stars);
+
+            const text = document.createElement('p');
+            text.textContent = review.testo || review.text;
+
+            const date = document.createElement('small');
+            if (review.created_at) {
+                const d = new Date(review.created_at);
+                date.textContent = d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+            } else {
+                date.textContent = 'Recensione pubblicata ora';
+            }
+
+            card.append(head, text, date);
+            reviewList.prepend(card);
+        }
+
+        function updateStats(totale, media) {
+            reviewAverage.textContent = totale > 0 ? Number(media).toFixed(1) : '—';
+            reviewCount.textContent = totale + (totale === 1 ? ' recensione' : ' recensioni');
+        }
+
+        // Carica da Database se disponibile, altrimenti da localStorage
+        async function loadReviews() {
+            try {
+                const res = await fetch(API_URL);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                if (data.success && Array.isArray(data.recensioni) && data.recensioni.length > 0) {
+                    reviewList.innerHTML = '';
+                    data.recensioni.reverse().forEach(renderCustomerReview);
+                    updateStats(data.stats.totale, data.stats.media);
+                    return;
+                }
+            } catch (e) {
+                // Modalità offline / locale: usa localStorage
+            }
+
+            // Fallback localStorage (solo recensioni reali salvate)
+            try {
+                const stored = JSON.parse(localStorage.getItem(reviewStorageKey) || '[]');
+                if (stored.length > 0) {
+                    reviewList.innerHTML = '';
+                    stored.forEach(renderCustomerReview);
+                    const avg = stored.reduce((tot, r) => tot + Number(r.rating || r.valutazione), 0) / stored.length;
+                    updateStats(stored.length, avg);
+                } else {
+                    reviewList.innerHTML = '<p style="color:#999;font-size:14px;padding:12px 0;">Non ci sono ancora recensioni. Sii la prima a condividere la tua esperienza!</p>';
+                    updateStats(0, 0);
+                }
+            } catch (err) {}
+        }
+
+        loadReviews();
+
+        // Invia recensione: salva su DB (e su localStorage per sicurezza)
+        reviewForm.addEventListener('submit', async event => {
+            event.preventDefault();
+            const formData = new FormData(reviewForm);
+            const review = {
+                id: 'rev_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+                name: String(formData.get('name')).trim().slice(0, 80),
+                rating: String(formData.get('rating')),
+                text: String(formData.get('text')).trim().slice(0, 400)
+            };
+
+            const submitBtn = reviewForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Invio in corso...';
+            submitBtn.disabled = true;
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(review)
+                });
+                const data = await res.json();
+                if (!data.success) throw new Error(data.error);
+            } catch (e) {
+                // Se non c'è connessione al DB, salva comunque in locale
+                try {
+                    let local = JSON.parse(localStorage.getItem(reviewStorageKey) || '[]');
+                    local.push(review);
+                    localStorage.setItem(reviewStorageKey, JSON.stringify(local.slice(-50)));
+                } catch (err) {}
+            }
+
+            // Rimuovi messaggio "Nessuna recensione" se presente
+            const emptyNotice = reviewList.querySelector('p');
+            if (emptyNotice) reviewList.innerHTML = '';
+
+            renderCustomerReview(review);
+            reviewForm.reset();
+            document.getElementById('customerReviewRating').value = '5';
+            submitBtn.textContent = '✓ Pubblicata!';
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2500);
+
+            // Ricalcola conteggio
+            const currentTotal = reviewList.querySelectorAll('.customer-review-card').length;
+            const allRatings = Array.from(reviewList.querySelectorAll('.customer-review-card')).map(card => {
+                return Number(card.querySelector('.customer-review-stars').getAttribute('data-rating') || 0);
+            });
+            const avg = allRatings.reduce((a, b) => a + b, 0) / (allRatings.length || 1);
+            updateStats(currentTotal, avg);
+        });
+    </script>
+
+    <!-- ==================== CONTATTI A SCHERMO MODAL ==================== -->
+    <div class="legal-modal-overlay" id="contactModal">
+        <div class="contact-popup-card">
+            <button class="contact-popup-close" onclick="closeModal('contactModal')" aria-label="Chiudi">✕</button>
+            <div class="contact-popup-header">
+                <span class="contact-popup-tag">✧ CONTATTI &amp; PRENOTAZIONI ✧</span>
+                <h3 class="contact-popup-title">Antonio Farella</h3>
+                <p class="contact-popup-sub">Hair Designer Studio • Bari</p>
+            </div>
+
+            <div class="contact-methods-list">
+                <!-- TELEFONO -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Telefono &amp; Prenotazioni</span>
+                        <strong class="contact-method-val">080 352 8244</strong>
+                    </div>
+                    <div class="contact-method-actions">
+                        <button class="btn-copy-contact" onclick="copyContact('0803528244', this)" title="Copia numero">
+                            <i class="fas fa-copy"></i> Copia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Email Diretta</span>
+                        <strong class="contact-method-val">antonio.farella@hotmail.com</strong>
+                    </div>
+                    <div class="contact-method-actions">
+                        <button class="btn-copy-contact" onclick="copyContact('antonio.farella@hotmail.com', this)" title="Copia email">
+                            <i class="fas fa-copy"></i> Copia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- INDIRIZZO -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Indirizzo Salone</span>
+                        <strong class="contact-method-val">Via Stefano Jacini 78, 70125 Bari (BA)</strong>
+                    </div>
+                </div>
+
+                <!-- ORARI -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-clock"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Orari di Apertura</span>
+                        <strong class="contact-method-val">Martedì – Sabato: 08:30 – 19:30</strong>
+                        <small style="color: #999; display:block; font-size:12px; margin-top:2px;">Domenica e Lunedì: Chiuso</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-popup-footer">
+                <button onclick="closeModal('contactModal')" class="btn-close-popup">Chiudi Scheda</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PRIVACY POLICY MODAL ==================== -->
+    <div class="legal-modal-overlay" id="privacyModal">
+        <div class="legal-modal">
+            <button class="legal-modal-close" onclick="closeModal('privacyModal')" aria-label="Chiudi"><i class="fas fa-times"></i></button>
+            <h2>Privacy Policy</h2>
+            <p><strong>Ultimo aggiornamento:</strong> Settembre 2026</p>
+
+            <h3>1. Titolare del Trattamento</h3>
+            <p>Il Titolare del trattamento dei dati personali è <strong>Antonio Farella Hair Designer Studio</strong>, con sede in Via Stefano Jacini 78, CAP 70125, Bari (BA), Italia – P.IVA: IT09170380720.</p>
+            <p>Email: <a href="mailto:antonio.farella@hotmail.com">antonio.farella@hotmail.com</a> | Tel: <a href="tel:0803528244">080 352 8244</a></p>
+
+            <h3>2. Tipologie di Dati Raccolti</h3>
+            <p>Tra i dati personali raccolti da questo sito, in modo diretto o tramite terze parti, ci sono:</p>
+            <ul>
+                <li>Dati di navigazione (indirizzo IP, browser, sistema operativo, pagine visitate)</li>
+                <li>Dati forniti volontariamente dall'utente (nome, email, telefono tramite richieste di contatto)</li>
+                <li>Cookie e dati di utilizzo</li>
+            </ul>
+
+            <h3>3. Finalità del Trattamento</h3>
+            <p>I dati vengono trattati per le seguenti finalità:</p>
+            <ul>
+                <li>Rispondere alle richieste di informazioni e prenotazioni</li>
+                <li>Migliorare l'esperienza di navigazione sul sito</li>
+                <li>Adempiere agli obblighi di legge</li>
+                <li>Analisi statistiche anonime del traffico web</li>
+            </ul>
+
+            <h3>4. Base Giuridica del Trattamento</h3>
+            <p>Il trattamento dei dati si basa sul consenso dell'interessato, sull'esecuzione di un contratto o precontratto, e sugli obblighi di legge a cui è soggetto il Titolare.</p>
+
+            <h3>5. Modalità di Trattamento</h3>
+            <p>I dati vengono trattati con strumenti informatici e/o cartacei, con logiche strettamente correlate alle finalità sopra indicate e, comunque, in modo da garantirne la sicurezza e la riservatezza.</p>
+
+            <h3>6. Conservazione dei Dati</h3>
+            <p>I dati sono conservati per il tempo necessario al raggiungimento delle finalità per cui sono raccolti, nel rispetto della normativa vigente.</p>
+
+            <h3>7. Diritti dell'Interessato</h3>
+            <p>Ai sensi degli artt. 15-22 del Regolamento UE 2016/679 (GDPR), l'interessato ha diritto di:</p>
+            <ul>
+                <li>Accedere ai propri dati personali</li>
+                <li>Richiedere la rettifica o la cancellazione</li>
+                <li>Limitare o opporsi al trattamento</li>
+                <li>Richiedere la portabilità dei dati</li>
+                <li>Revocare il consenso in qualsiasi momento</li>
+                <li>Proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali</li>
+            </ul>
+            <p>Per esercitare i propri diritti, contattare: <a href="mailto:antonio.farella@hotmail.com">antonio.farella@hotmail.com</a></p>
+
+            <h3>8. Modifiche alla Privacy Policy</h3>
+            <p>Il Titolare si riserva il diritto di apportare modifiche alla presente informativa. Si consiglia di consultare periodicamente questa pagina.</p>
+        </div>
+    </div>
+
+    <!-- ==================== COOKIE POLICY MODAL ==================== -->
+    <div class="legal-modal-overlay" id="cookieModal">
+        <div class="legal-modal">
+            <button class="legal-modal-close" onclick="closeModal('cookieModal')" aria-label="Chiudi"><i class="fas fa-times"></i></button>
+            <h2>Cookie Policy</h2>
+            <p><strong>Ultimo aggiornamento:</strong> Settembre 2026</p>
+
+            <h3>1. Cosa sono i Cookie</h3>
+            <p>I cookie sono piccoli file di testo che i siti visitati inviano al browser dell'utente, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva.</p>
+
+            <h3>2. Tipologie di Cookie Utilizzati</h3>
+            <h3>Cookie Tecnici (necessari)</h3>
+            <p>Sono essenziali per il corretto funzionamento del sito. Non richiedono il consenso dell'utente. Includono:</p>
+            <ul>
+                <li>Cookie di sessione per la navigazione</li>
+                <li>Cookie per memorizzare le preferenze (es. consenso cookie)</li>
+            </ul>
+
+            <h3>Cookie Analitici</h3>
+            <p>Utilizzati per raccogliere informazioni in forma anonima sull'utilizzo del sito (es. Google Analytics). Consentono di capire come gli utenti interagiscono con il sito per migliorarne l'esperienza.</p>
+
+            <h3>Cookie di Terze Parti</h3>
+            <p>Il sito potrebbe includere componenti di terze parti (es. Google Fonts, mappe, social media) che possono installare propri cookie. Il Titolare non ha controllo sui cookie installati da terze parti.</p>
+
+            <h3>3. Gestione dei Cookie</h3>
+            <p>L'utente può gestire le preferenze relative ai cookie direttamente dal proprio browser. La disattivazione dei cookie potrebbe compromettere alcune funzionalità del sito.</p>
+            <p>Per maggiori informazioni sulla gestione dei cookie nei diversi browser:</p>
+            <ul>
+                <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+                <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox-desktop" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+                <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+                <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+            </ul>
+
+            <h3>4. Consenso</h3>
+            <p>Al primo accesso al sito viene visualizzato un banner informativo sui cookie. Proseguendo la navigazione o chiudendo il banner, l'utente acconsente all'utilizzo dei cookie.</p>
+
+            <h3>5. Aggiornamenti</h3>
+            <p>La presente Cookie Policy può essere soggetta ad aggiornamenti. Si consiglia di consultarla periodicamente.</p>
+        </div>
+    </div>
+
+    <!-- ==================== COOKIE CONSENT BANNER ==================== -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner-inner">
+            <p>Questo sito utilizza cookie tecnici e analitici per migliorare la tua esperienza di navigazione. Per saperne di più, consulta la nostra <a href="#" onclick="openModal('cookieModal'); return false;">Cookie Policy</a> e la <a href="#" onclick="openModal('privacyModal'); return false;">Privacy Policy</a>.</p>
+            <div class="cookie-banner-actions">
+                <button class="cookie-btn-accept" onclick="acceptCookies()">Accetta tutti</button>
+                <button class="cookie-btn-reject" onclick="rejectCookies()">Solo necessari</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .cookie-banner {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--alt-bg);
+            border-top: 1px solid var(--alt-bd);
+            padding: 20px 30px;
+            z-index: 2500;
+            animation: cookieSlideUp 0.4s ease forwards;
+        }
+
+        .cookie-banner.show { display: block; }
+
+        @keyframes cookieSlideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+
+        .cookie-banner-inner {
+            max-width: 1290px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-banner-inner p {
+            color: var(--alt-text);
+            font-size: 14px;
+            line-height: 1.7;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .cookie-banner-inner p a {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .cookie-banner-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .cookie-btn-accept {
+            background: var(--gold);
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 28px;
+            font-family: var(--font-h);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cookie-btn-accept:hover { background: var(--link); color: white; }
+
+        .cookie-btn-reject {
+            background: transparent;
+            color: var(--alt-text);
+            border: 1px solid var(--alt-bd);
+            padding: 12px 28px;
+            font-family: var(--font-h);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cookie-btn-reject:hover { border-color: var(--alt-text); color: white; }
+
+        @media (max-width: 768px) {
+            .cookie-banner-inner { flex-direction: column; text-align: center; }
+            .cookie-banner-actions { width: 100%; justify-content: center; }
+        }
+    </style>
+
+    <script>
+        // Modal open/close
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.querySelectorAll('.legal-modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.legal-modal-overlay.open').forEach(m => {
+                    m.classList.remove('open');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Cookie consent banner
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => {
+                document.getElementById('cookieBanner').classList.add('show');
+            }, 1500);
+        }
+
+        // Intercetta TUTTI i bottoni di contatto/telefono/email/prenotazione: mostra a schermo il contatto senza reindirizzare!
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('a[href^="tel:"], a[href^="mailto:"], .header-cta, a[href="#contact"], a[href="#info"]');
+            if (btn) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal('contactModal');
+            }
+        });
+
+        // Funzione per copiare telefono o email
+        function copyContact(text, btn) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalHtml = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copiato!';
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                }).catch(() => {
+                    prompt("Copia il contatto:", text);
+                });
+            } else {
+                prompt("Copia il contatto:", text);
+            }
+        }
+    </script>
+
+</body>
+</html>

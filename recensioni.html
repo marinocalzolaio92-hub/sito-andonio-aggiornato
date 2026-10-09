@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutte le Recensioni — Antonio Farella Hair Designer Studio</title>
+    <meta name="description" content="Tutte le recensioni dei clienti di Antonio Farella Hair Designer Studio. Ordinate dalla valutazione più alta alla più bassa.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <meta property="og:image" content="favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Kumbh+Sans:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #FFFFFF;
+            --bg2: #F9F7F5;
+            --bd: #E9E9E9;
+            --title: #321D11;
+            --text: #707376;
+            --gold: #C9A96E;
+            --gold-light: #F7F3EB;
+            --link: #FF9E8D;
+            --hover: #F87D6B;
+            --alt-bg: #0E0402;
+            --font-h: 'Tenor Sans', serif;
+            --font-p: 'Kumbh Sans', sans-serif;
+            --font-italic: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            font-family: var(--font-p);
+            background: var(--bg2);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* HEADER */
+        .page-header {
+            background: #fff;
+            border-bottom: 1px solid var(--bd);
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--title);
+        }
+
+        .brand-logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .brand-text h1 {
+            font-family: var(--font-h);
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--title);
+            line-height: 1.2;
+        }
+
+        .brand-text span {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+        }
+
+        .btn-back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border: 1px solid var(--bd);
+            background: #fff;
+            color: var(--title);
+            font-family: var(--font-h);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-back-home:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: var(--gold-light);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HERO TITLE */
+        .hero-banner {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .hero-tag {
+            font-family: var(--font-h);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-family: var(--font-h);
+            font-size: clamp(28px, 4.5vw, 44px);
+            color: var(--title);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .hero-sub {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        /* STATS OVERVIEW CARD */
+        .stats-card {
+            background: #fff;
+            border: 1px solid var(--bd);
+            border-radius: 4px;
+            padding: 30px 40px;
+            margin-bottom: 36px;
+            display: grid;
+            grid-template-columns: 240px 1fr 200px;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .stats-score {
+            text-align: center;
+            border-right: 1px solid var(--bd);
+            padding-right: 30px;
+        }
+
+        .stats-score-num {
+            font-family: var(--font-h);
+            font-size: 64px;
+            line-height: 1;
+            color: var(--title);
+            font-weight: 400;
+        }
+
+        .stats-stars {
+            color: var(--gold);
+            font-size: 22px;
+            letter-spacing: 3px;
+            margin: 8px 0;
+        }
+
+        .stats-score-sub {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* DISTRIBUTION BARS */
+        .rating-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rating-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 2px;
+            transition: background 0.2s;
+        }
+
+        .rating-bar-row:hover {
+            background: var(--gold-light);
+        }
+
+        .bar-label {
+            width: 60px;
+            font-weight: 500;
+            color: var(--title);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .bar-label i { color: var(--gold); font-size: 11px; }
+
+        .bar-track {
+            flex: 1;
+            height: 8px;
+            background: #f0edea;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--gold);
+            width: 0%;
+            transition: width 0.6s ease;
+        }
+
+        .bar-count {
+            width: 35px;
+            text-align: right;
+            color: #999;
+            font-size: 12px;
+        }
+
+        /* ACTIONS IN STATS */
+        .stats-action {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
+            border-left: 1px solid var(--bd);
+            padding-left: 30px;
+        }
+
+        .btn-write-review {
+            background: var(--title);
+            color: #fff;
+            padding: 12px 20px;
+            font-family: var(--font-h);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-write-review:hover {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        /* TOOLBAR FILTRI */
+        .reviews-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .toolbar-info {
+            font-size: 14px;
+            color: var(--title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toolbar-info .badge-sort {
+            background: var(--gold-light);
+            border: 1px solid var(--gold);
+            color: var(--title);
+            padding: 4px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .filter-chips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            background: #fff;
+            border: 1px solid var(--bd);
+            padding: 6px 14px;
+            font-size: 12px;
+            cursor: pointer;
+            color: var(--title);
+            font-family: var(--font-h);
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+
+        .chip:hover, .chip.active {
+            background: var(--title);
+            border-color: var(--title);
+            color: #fff;
+        }
+
+        .chip.active i {
+            color: var(--gold);
+        }
+
+        /* REVIEWS LIST */
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .review-card {
+            background: #fff;
+            border: 1px solid var(--bd);
+            border-radius: 4px;
+            padding: 26px 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+
+        .review-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            color: var(--title);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-h);
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid var(--gold);
+        }
+
+        .reviewer-name {
+            font-family: var(--font-h);
+            font-size: 16px;
+            color: var(--title);
+            letter-spacing: 0.5px;
+        }
+
+        .reviewer-badge {
+            font-size: 11px;
+            color: #27ae60;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 2px;
+        }
+
+        .review-rating-block {
+            text-align: right;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-family: Arial, sans-serif;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .btn-del-review {
+            background: transparent;
+            border: none;
+            color: #999;
+            opacity: 0.35;
+            cursor: pointer;
+            font-size: 13px;
+            padding: 4px 6px;
+            margin-left: 8px;
+            transition: all 0.25s;
+        }
+
+        .btn-del-review:hover {
+            color: #e74c3c;
+            opacity: 1;
+            transform: scale(1.15);
+        }
+
+        .review-body {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4a4d50;
+            margin-top: 6px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border: 1px dashed var(--bd);
+        }
+
+        .empty-state i {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        /* FOOTER BACK CTA */
+        .footer-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: #fff;
+            border: 1px solid var(--bd);
+        }
+
+        .footer-cta h3 {
+            font-family: var(--font-h);
+            font-size: 22px;
+            color: var(--title);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 860px) {
+            .page-header { padding: 12px 18px; }
+            .container { padding: 0 16px; }
+            .stats-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 22px 18px;
+            }
+            .stats-score { border-right: none; border-bottom: 1px solid var(--bd); padding-right: 0; padding-bottom: 18px; }
+            .stats-action { border-left: none; border-top: 1px solid var(--bd); padding-left: 0; padding-top: 18px; }
+            .btn-write-review { width: 100%; text-align: center; }
+            .reviews-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .filter-chips {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: 6px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .filter-chips::-webkit-scrollbar { display: none; }
+            .chip { flex-shrink: 0; }
+            .review-card {
+                padding: 20px 18px;
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                padding: 10px 14px;
+            }
+            .brand-text h1 {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+            .brand-text span {
+                font-size: 9.5px;
+            }
+            .brand-logo-img {
+                width: 36px;
+                height: 36px;
+            }
+            .btn-back-home {
+                padding: 7px 12px;
+                font-size: 10.5px;
+                letter-spacing: 1px;
+            }
+            .hero-banner {
+                padding: 30px 12px 20px;
+            }
+            .hero-title {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+            .hero-sub {
+                font-size: 14px;
+            }
+            .stats-score-num {
+                font-size: 46px;
+            }
+            .review-card {
+                padding: 16px 14px;
+            }
+            .reviewer-avatar {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .reviewer-name {
+                font-size: 14.5px;
+            }
+            .review-body {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+            .footer-cta {
+                padding: 24px 16px;
+            }
+            .footer-cta h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* MODAL OVERLAY & POPUP CONTATTO */
+        .legal-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .legal-modal-overlay.open { display: flex; }
+
+        .contact-popup-card {
+            background: #161616;
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+            border-radius: 12px;
+            max-width: 480px;
+            width: 100%;
+            padding: 34px 28px;
+            position: relative;
+            color: #fff;
+            animation: modalPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPopIn {
+            from { opacity: 0; transform: scale(0.93) translateY(14px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .contact-popup-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 6px 10px;
+            transition: color 0.2s;
+        }
+
+        .contact-popup-close:hover { color: #fff; }
+
+        .contact-popup-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .contact-popup-tag {
+            font-family: var(--font-h);
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .contact-popup-title {
+            font-family: var(--font-h);
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .contact-popup-sub {
+            font-size: 13px;
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+
+        .contact-methods-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .contact-method-item {
+            background: #202020;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 13px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contact-method-item:hover {
+            border-color: rgba(201, 169, 110, 0.4);
+            background: #252525;
+        }
+
+        .contact-method-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, 0.15);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-method-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-method-label {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+
+        .contact-method-val {
+            display: block;
+            font-size: 15px;
+            color: #fff;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .contact-method-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-copy-contact {
+            background: rgba(201, 169, 110, 0.18);
+            border: 1px solid rgba(201, 169, 110, 0.4);
+            color: var(--gold);
+            padding: 6px 12px;
+            font-size: 11.5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-p);
+            white-space: nowrap;
+        }
+
+        .btn-copy-contact:hover {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .contact-popup-footer {
+            text-align: center;
+        }
+
+        .btn-close-popup {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #aaa;
+            padding: 9px 24px;
+            font-size: 11.5px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-close-popup:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        @media (max-width: 480px) {
+            .contact-popup-card { padding: 24px 16px; }
+            .contact-popup-title { font-size: 21px; }
+            .contact-method-val { font-size: 13.5px; }
+            .contact-method-item { padding: 11px 12px; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <a href="index.html" class="brand-link">
+            <img src="nuovo.png" alt="Antonio Farella" class="brand-logo-img">
+            <div class="brand-text">
+                <h1>Antonio Farella</h1>
+                <span>Hair Designer Studio</span>
+            </div>
+        </a>
+        <a href="index.html" class="btn-back-home">
+            <i class="fas fa-arrow-left"></i> Torna al Salone
+        </a>
+    </header>
+
+    <div class="container">
+
+        <!-- HERO INTRO -->
+        <section class="hero-banner">
+            <span class="hero-tag">✧ Feedback &amp; Opinioni ✧</span>
+            <h2 class="hero-title">Tutte le Recensioni</h2>
+            <p class="hero-sub">
+                La voce autentica di chi ha vissuto l'esperienza nel nostro studio. Mostrate in ordine di valutazione dalla più alta alla più bassa.
+            </p>
+        </section>
+
+        <!-- STATS OVERVIEW -->
+        <section class="stats-card">
+            <div class="stats-score">
+                <div class="stats-score-num" id="statsAverage">5.0</div>
+                <div class="stats-stars" id="statsStarsHeader">★★★★★</div>
+                <div class="stats-score-sub" id="statsTotal">6 Recensioni</div>
+            </div>
+
+            <div class="rating-bars">
+                <div class="rating-bar-row" onclick="filterByStars(5)">
+                    <div class="bar-label">5 ★</div>
+                    <div class="bar-track"><div class="bar-fill" id="bar5" style="width: 100%;"></div></div>
+                    <span class="bar-count" id="count5">6</span>
+                </div>
+                <div class="rating-bar-row" onclick="filterByStars(4)">
+                    <div class="bar-label">4 ★</div>
+                    <div class="bar-track"><div class="bar-fill" id="bar4" style="width: 0%;"></div></div>
+                    <span class="bar-count" id="count4">0</span>
+                </div>
+                <div class="rating-bar-row" onclick="filterByStars(3)">
+                    <div class="bar-label">3 ★</div>
+                    <div class="bar-track"><div class="bar-fill" id="bar3" style="width: 0%;"></div></div>
+                    <span class="bar-count" id="count3">0</span>
+                </div>
+                <div class="rating-bar-row" onclick="filterByStars(2)">
+                    <div class="bar-label">2 ★</div>
+                    <div class="bar-track"><div class="bar-fill" id="bar2" style="width: 0%;"></div></div>
+                    <span class="bar-count" id="count2">0</span>
+                </div>
+                <div class="rating-bar-row" onclick="filterByStars(1)">
+                    <div class="bar-label">1 ★</div>
+                    <div class="bar-track"><div class="bar-fill" id="bar1" style="width: 0%;"></div></div>
+                    <span class="bar-count" id="count1">0</span>
+                </div>
+            </div>
+
+            <div class="stats-action">
+                <p style="font-size: 13px; color: #888;">Sei stata/o nostra ospite?</p>
+                <a href="index.html#recensioni" class="btn-write-review">
+                    <i class="fas fa-pen" style="margin-right: 6px;"></i> Scrivi recensione
+                </a>
+            </div>
+        </section>
+
+        <!-- TOOLBAR: FILTRO E ORDINAMENTO -->
+        <div class="reviews-toolbar">
+            <div class="toolbar-info">
+                <span>Ordinamento:</span>
+                <span class="badge-sort"><i class="fas fa-sort-amount-down"></i> Dalla più alta alla più bassa (5★ &rarr; 1★)</span>
+            </div>
+
+            <div class="filter-chips">
+                <button class="chip active" onclick="filterByStars('all')">Tutte</button>
+                <button class="chip" onclick="filterByStars(5)">5 ★</button>
+                <button class="chip" onclick="filterByStars(4)">4 ★</button>
+                <button class="chip" onclick="filterByStars(3)">3 ★</button>
+                <button class="chip" onclick="filterByStars(2)">2 ★</button>
+                <button class="chip" onclick="filterByStars(1)">1 ★</button>
+            </div>
+        </div>
+
+        <!-- LISTA RECENSIONI -->
+        <main class="reviews-list" id="reviewsContainer" aria-live="polite">
+            <!-- Popolato dinamicamente da JavaScript -->
+        </main>
+
+        <!-- FOOTER CTA -->
+        <div class="footer-cta">
+            <h3>Vuoi vivere anche tu questa esperienza?</h3>
+            <p style="margin-bottom: 20px; color: #777;">Prenota la tua consulenza personalizzata presso il nostro studio.</p>
+            <a href="tel:0803528244" class="btn-write-review" style="background: var(--gold);">
+                <i class="fas fa-phone-alt" style="margin-right: 8px;"></i> Chiama 080 352 8244
+            </a>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT: CARICAMENTO, ORDINAMENTO DA PIÙ ALTA A PIÙ BASSA -->
+    <script>
+        // Nessuna recensione fittizia: solo recensioni reali caricate dal database o salvate
+        const DEFAULT_REVIEWS = [];
+
+        let allReviews = [];
+        let currentFilter = 'all';
+
+        // Caricamento unificato (API DB se presente, altrimenti localStorage)
+        async function fetchAllReviews() {
+            let loaded = [];
+
+            // 1. Prova API MySQL
+            try {
+                const res = await fetch('api/recensioni.php');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.success && Array.isArray(data.recensioni) && data.recensioni.length > 0) {
+                        loaded = data.recensioni.map(r => ({
+                            name: r.nome || r.name,
+                            rating: Number(r.valutazione || r.rating),
+                            text: r.testo || r.text,
+                            date: r.created_at ? new Date(r.created_at).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Recente'
+                        }));
+                    }
+                }
+            } catch (err) {
+                // Modalità offline
+            }
+
+            // 2. Fallback localStorage per recensioni reali inviate dal browser
+            if (loaded.length === 0) {
+                try {
+                    const stored = JSON.parse(localStorage.getItem('antonioFarellaReviews') || '[]');
+                    if (Array.isArray(stored)) {
+                        stored.forEach((r, idx) => {
+                            loaded.push({
+                                id: r.id || ('local_' + idx),
+                                name: r.name || r.nome,
+                                rating: Number(r.rating || r.valutazione),
+                                text: r.text || r.testo,
+                                date: r.date || 'Recensione recente'
+                            });
+                        });
+                    }
+                } catch (e) {}
+            }
+
+            // Ordinamento: dalla più alta (5★) alla più bassa (1★)
+            allReviews = loaded.sort((a, b) => b.rating - a.rating);
+
+            updateStats();
+            renderReviews();
+        }
+
+        // Calcolo e aggiornamento statistiche
+        function updateStats() {
+            if (allReviews.length === 0) {
+                document.getElementById('statsAverage').textContent = '—';
+                document.getElementById('statsTotal').textContent = '0 Recensioni';
+                for (let star = 1; star <= 5; star++) {
+                    document.getElementById(`count${star}`).textContent = '0';
+                    document.getElementById(`bar${star}`).style.width = '0%';
+                }
+                return;
+            }
+
+            const total = allReviews.length;
+            const sum = allReviews.reduce((acc, r) => acc + r.rating, 0);
+            const avg = (sum / total).toFixed(1);
+
+            document.getElementById('statsAverage').textContent = avg;
+            document.getElementById('statsTotal').textContent = `${total} ${total === 1 ? 'Recensione' : 'Recensioni'}`;
+
+            // Conteggio stelle
+            const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+            allReviews.forEach(r => {
+                if (counts[r.rating] !== undefined) counts[r.rating]++;
+            });
+
+            for (let star = 1; star <= 5; star++) {
+                const count = counts[star];
+                const pct = total > 0 ? (count / total) * 100 : 0;
+                document.getElementById(`count${star}`).textContent = count;
+                document.getElementById(`bar${star}`).style.width = `${pct}%`;
+            }
+        }
+
+        // Render card
+        const ADMIN_PIN = '201022';
+
+        function renderReviews() {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            const filtered = currentFilter === 'all'
+                ? allReviews
+                : allReviews.filter(r => r.rating === Number(currentFilter));
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-star-half-alt"></i>
+                        <h4 style="font-family: var(--font-h); font-size: 18px; color: var(--title); margin-bottom: 6px;">Nessuna recensione trovata</h4>
+                        <p style="color: #888; font-size: 14px;">Non ci sono ancora recensioni con questa valutazione.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(review => {
+                const card = document.createElement('article');
+                card.className = 'review-card';
+
+                const initial = (review.name || 'A').charAt(0).toUpperCase();
+                const starsFilled = '★'.repeat(review.rating);
+                const starsEmpty = '☆'.repeat(5 - review.rating);
+
+                card.innerHTML = `
+                    <div class="review-card-head">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">${initial}</div>
+                            <div>
+                                <h3 class="reviewer-name">${escapeHtml(review.name)}</h3>
+                                <div class="reviewer-badge"><i class="fas fa-check-circle"></i> Esperienza verificata</div>
+                            </div>
+                        </div>
+                        <div class="review-rating-block">
+                            <div style="display:flex; align-items:center; justify-content:flex-end;">
+                                <div class="review-stars" aria-label="${review.rating} stelle">${starsFilled}${starsEmpty}</div>
+                                <button type="button" class="btn-del-review" title="Elimina recensione (richiede password)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                            <div class="review-date">${escapeHtml(review.date || 'Recente')}</div>
+                        </div>
+                    </div>
+                    <p class="review-body">${escapeHtml(review.text)}</p>
+                `;
+
+                // Collega l'evento click direttamente senza attributi stringa inline (evita errori con apostrofi)
+                const delBtn = card.querySelector('.btn-del-review');
+                if (delBtn) {
+                    delBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        deleteReview(review);
+                    });
+                }
+
+                container.appendChild(card);
+            });
+        }
+
+        function deleteReview(target) {
+            const pin = prompt("Inserisci la password di amministrazione per eliminare questa recensione:");
+            if (pin === null) return; // Annullato dall'utente
+            if (pin.trim() !== ADMIN_PIN) {
+                alert("Password errata!");
+                return;
+            }
+
+            // 1. Elimina da localStorage con doppio controllo (sia per ID che per contenuto esatto)
+            try {
+                let stored = JSON.parse(localStorage.getItem('antonioFarellaReviews') || '[]');
+                if (Array.isArray(stored)) {
+                    stored = stored.filter(r => {
+                        // Se l'ID corrisponde, elimina
+                        if (target.id && r.id && String(r.id) === String(target.id)) return false;
+                        // Controllo di sicurezza: se nome e testo coincidono, elimina
+                        const nameSame = String(r.name || r.nome || '').trim() === String(target.name || target.nome || '').trim();
+                        const textSame = String(r.text || r.testo || '').trim() === String(target.text || target.testo || '').trim();
+                        if (nameSame && textSame) return false;
+                        return true;
+                    });
+                    localStorage.setItem('antonioFarellaReviews', JSON.stringify(stored));
+                }
+            } catch (e) {}
+
+            // 2. Se online, invia richiesta all'API PHP
+            if (target.id) {
+                try {
+                    fetch('api/recensioni.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'delete', id: target.id, password: ADMIN_PIN })
+                    }).catch(() => {});
+                } catch (err) {}
+            }
+
+            alert("Recensione eliminata con successo.");
+            fetchAllReviews();
+        }
+
+        function filterByStars(star) {
+            currentFilter = star;
+
+            // Aggiorna chip attivi
+            document.querySelectorAll('.filter-chips .chip').forEach(chip => {
+                chip.classList.remove('active');
+                if (star === 'all' && chip.textContent.includes('Tutte')) chip.classList.add('active');
+                else if (star !== 'all' && chip.textContent.trim().startsWith(String(star))) chip.classList.add('active');
+            });
+
+            renderReviews();
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Avvio iniziale
+        fetchAllReviews();
+
+        // Modal open/close
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on click outside
+        document.querySelectorAll('.legal-modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.legal-modal-overlay.open').forEach(m => m.classList.remove('open'));
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Intercetta TUTTI i bottoni di contatto/telefono/email per mostrare il contatto a schermo
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+            if (btn) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal('contactModal');
+            }
+        });
+
+        // Funzione copia contatto
+        function copyContact(text, btn) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalHtml = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copiato!';
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                }).catch(() => {
+                    prompt("Copia il contatto:", text);
+                });
+            } else {
+                prompt("Copia il contatto:", text);
+            }
+        }
+    </script>
+
+    <!-- ==================== CONTATTI A SCHERMO MODAL ==================== -->
+    <div class="legal-modal-overlay" id="contactModal">
+        <div class="contact-popup-card">
+            <button class="contact-popup-close" onclick="closeModal('contactModal')" aria-label="Chiudi">✕</button>
+            <div class="contact-popup-header">
+                <span class="contact-popup-tag">✧ CONTATTI &amp; PRENOTAZIONI ✧</span>
+                <h3 class="contact-popup-title">Antonio Farella</h3>
+                <p class="contact-popup-sub">Hair Designer Studio • Bari</p>
+            </div>
+
+            <div class="contact-methods-list">
+                <!-- TELEFONO -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Telefono &amp; Prenotazioni</span>
+                        <strong class="contact-method-val">080 352 8244</strong>
+                    </div>
+                    <div class="contact-method-actions">
+                        <button class="btn-copy-contact" onclick="copyContact('0803528244', this)" title="Copia numero">
+                            <i class="fas fa-copy"></i> Copia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Email Diretta</span>
+                        <strong class="contact-method-val">antonio.farella@hotmail.com</strong>
+                    </div>
+                    <div class="contact-method-actions">
+                        <button class="btn-copy-contact" onclick="copyContact('antonio.farella@hotmail.com', this)" title="Copia email">
+                            <i class="fas fa-copy"></i> Copia
+                        </button>
+                    </div>
+                </div>
+
+                <!-- INDIRIZZO -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Indirizzo Salone</span>
+                        <strong class="contact-method-val">Via Stefano Jacini 78, 70125 Bari (BA)</strong>
+                    </div>
+                </div>
+
+                <!-- ORARI -->
+                <div class="contact-method-item">
+                    <div class="contact-method-icon"><i class="fas fa-clock"></i></div>
+                    <div class="contact-method-body">
+                        <span class="contact-method-label">Orari di Apertura</span>
+                        <strong class="contact-method-val">Martedì – Sabato: 08:30 – 19:30</strong>
+                        <small style="color: #999; display:block; font-size:12px; margin-top:2px;">Domenica e Lunedì: Chiuso</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-popup-footer">
+                <button onclick="closeModal('contactModal')" class="btn-close-popup">Chiudi Scheda</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
